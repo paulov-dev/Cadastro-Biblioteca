@@ -36,12 +36,12 @@
             toolTip1 = new ToolTip(components);
             BtnSalvar = new Button();
             BtnFechar = new Button();
-            dataGridView1 = new DataGridView();
+            GrdItens = new DataGridView();
             Codigo = new DataGridViewTextBoxColumn();
             Nome = new DataGridViewTextBoxColumn();
             BtnAlterar = new DataGridViewButtonColumn();
             BtnExcluir = new DataGridViewButtonColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
             // TxtCodigo
@@ -105,23 +105,27 @@
             BtnFechar.UseVisualStyleBackColor = true;
             BtnFechar.Click += BtnFechar_Click;
             // 
-            // dataGridView1
+            // GrdItens
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
-            dataGridView1.Location = new Point(0, 127);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(545, 413);
-            dataGridView1.TabIndex = 7;
+            GrdItens.AllowUserToAddRows = false;
+            GrdItens.AllowUserToDeleteRows = false;
+            GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
+            GrdItens.Location = new Point(0, 127);
+            GrdItens.Name = "GrdItens";
+            GrdItens.Size = new Size(545, 413);
+            GrdItens.TabIndex = 7;
             // 
             // Codigo
             // 
+            Codigo.DataPropertyName = "Codigo";
             Codigo.HeaderText = "Código";
             Codigo.Name = "Codigo";
             // 
             // Nome
             // 
+            Nome.DataPropertyName = "Nome";
             Nome.HeaderText = "Nome";
             Nome.Name = "Nome";
             Nome.Width = 200;
@@ -143,7 +147,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = BtnFechar;
             ClientSize = new Size(545, 542);
-            Controls.Add(dataGridView1);
+            Controls.Add(GrdItens);
             Controls.Add(BtnFechar);
             Controls.Add(BtnSalvar);
             Controls.Add(label1);
@@ -154,7 +158,8 @@
             Text = "Cadastro de Gêneros de Filme";
             Activated += FrmGenero_Activated;
             FormClosed += FrmGenero_FormClosed;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            Load += FrmGenero_Load;
+            ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -168,7 +173,7 @@
         private ToolTip toolTip1;
         private Button BtnSalvar;
         private Button BtnFechar;
-        private DataGridView dataGridView1;
+        private DataGridView GrdItens;
         private DataGridViewTextBoxColumn Codigo;
         private DataGridViewTextBoxColumn Nome;
         private DataGridViewButtonColumn BtnAlterar;

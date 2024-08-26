@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Biblioteca.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -42,6 +43,17 @@ namespace Biblioteca
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CarregaGrid()
+        {
+            GrdItens.AutoGenerateColumns = false;
+            GrdItens.DataSource = Genero.ListarTodos();
+        }
+
+        private void FrmGenero_Load(object sender, EventArgs e)
+        {
+            CarregaGrid();
         }
     }
 }

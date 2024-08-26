@@ -1,3 +1,5 @@
+using Biblioteca.Mock;
+
 namespace Biblioteca
 {
     internal static class Program
@@ -11,6 +13,9 @@ namespace Biblioteca
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+
+            MockGenero.CarregaGenero();
+
             Application.Run(new FrmMenu());
         }
     }
