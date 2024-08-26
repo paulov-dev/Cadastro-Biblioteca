@@ -35,13 +35,18 @@
             MnuSair = new ToolStripMenuItem();
             MnuSuspenso = new ContextMenuStrip(components);
             MnSGenero = new ToolStripMenuItem();
+            statusStrip1 = new StatusStrip();
+            LblDisplay = new ToolStripStatusLabel();
+            MnuAulas = new ToolStripMenuItem();
+            MnuAula01 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             MnuSuspenso.SuspendLayout();
+            statusStrip1.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosToolStripMenuItem, MnuAulas });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(1059, 24);
@@ -73,14 +78,45 @@
             // 
             MnuSuspenso.Items.AddRange(new ToolStripItem[] { MnSGenero });
             MnuSuspenso.Name = "MnuSuspenso";
-            MnuSuspenso.Size = new Size(181, 48);
+            MnuSuspenso.Size = new Size(113, 26);
             // 
             // MnSGenero
             // 
             MnSGenero.Name = "MnSGenero";
-            MnSGenero.Size = new Size(180, 22);
+            MnSGenero.Size = new Size(112, 22);
             MnSGenero.Text = "&Gênero";
             MnSGenero.Click += MnSGenero_Click;
+            // 
+            // statusStrip1
+            // 
+            statusStrip1.Items.AddRange(new ToolStripItem[] { LblDisplay });
+            statusStrip1.Location = new Point(0, 542);
+            statusStrip1.Name = "statusStrip1";
+            statusStrip1.Size = new Size(1059, 22);
+            statusStrip1.TabIndex = 4;
+            statusStrip1.Text = "statusStrip1";
+            // 
+            // LblDisplay
+            // 
+            LblDisplay.AutoSize = false;
+            LblDisplay.BorderSides = ToolStripStatusLabelBorderSides.Left | ToolStripStatusLabelBorderSides.Top | ToolStripStatusLabelBorderSides.Right | ToolStripStatusLabelBorderSides.Bottom;
+            LblDisplay.DisplayStyle = ToolStripItemDisplayStyle.Text;
+            LblDisplay.Name = "LblDisplay";
+            LblDisplay.Size = new Size(300, 17);
+            // 
+            // MnuAulas
+            // 
+            MnuAulas.DropDownItems.AddRange(new ToolStripItem[] { MnuAula01 });
+            MnuAulas.Name = "MnuAulas";
+            MnuAulas.Size = new Size(48, 20);
+            MnuAulas.Text = "&Aulas";
+            // 
+            // MnuAula01
+            // 
+            MnuAula01.Name = "MnuAula01";
+            MnuAula01.Size = new Size(180, 22);
+            MnuAula01.Text = "Aula01";
+            MnuAula01.Click += MnuAula01_Click;
             // 
             // FrmMenu
             // 
@@ -88,6 +124,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1059, 564);
             ContextMenuStrip = MnuSuspenso;
+            Controls.Add(statusStrip1);
             Controls.Add(menuStrip1);
             IsMdiContainer = true;
             MainMenuStrip = menuStrip1;
@@ -97,16 +134,22 @@
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             MnuSuspenso.ResumeLayout(false);
+            statusStrip1.ResumeLayout(false);
+            statusStrip1.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-        private MenuStrip menuStrip1;
         private ToolStripMenuItem cadastrosToolStripMenuItem;
-        private ToolStripMenuItem MnuGenero;
         private ToolStripMenuItem MnuSair;
-        private ContextMenuStrip MnuSuspenso;
-        private ToolStripMenuItem MnSGenero;
+        public MenuStrip menuStrip1;
+        public ContextMenuStrip MnuSuspenso;
+        public ToolStripMenuItem MnuGenero;
+        public ToolStripMenuItem MnSGenero;
+        private StatusStrip statusStrip1;
+        public ToolStripStatusLabel LblDisplay;
+        private ToolStripMenuItem MnuAulas;
+        private ToolStripMenuItem MnuAula01;
     }
 }

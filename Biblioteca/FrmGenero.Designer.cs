@@ -28,18 +28,150 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            TxtCodigo = new TextBox();
+            textBox2 = new TextBox();
+            LblCodigo = new Label();
+            label1 = new Label();
+            toolTip1 = new ToolTip(components);
+            BtnSalvar = new Button();
+            BtnFechar = new Button();
+            dataGridView1 = new DataGridView();
+            Codigo = new DataGridViewTextBoxColumn();
+            Nome = new DataGridViewTextBoxColumn();
+            BtnAlterar = new DataGridViewButtonColumn();
+            BtnExcluir = new DataGridViewButtonColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
+            // 
+            // TxtCodigo
+            // 
+            TxtCodigo.Location = new Point(32, 47);
+            TxtCodigo.MaxLength = 4;
+            TxtCodigo.Name = "TxtCodigo";
+            TxtCodigo.Size = new Size(46, 23);
+            TxtCodigo.TabIndex = 1;
+            toolTip1.SetToolTip(TxtCodigo, "Código numérico do gênero");
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(84, 47);
+            textBox2.MaxLength = 50;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(432, 23);
+            textBox2.TabIndex = 3;
+            toolTip1.SetToolTip(textBox2, "Nome do Gênero do Filme");
+            // 
+            // LblCodigo
+            // 
+            LblCodigo.AutoSize = true;
+            LblCodigo.Location = new Point(32, 29);
+            LblCodigo.Name = "LblCodigo";
+            LblCodigo.Size = new Size(46, 15);
+            LblCodigo.TabIndex = 0;
+            LblCodigo.Text = "Código";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(107, 29);
+            label1.Name = "label1";
+            label1.Size = new Size(40, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Nome";
+            label1.Click += label1_Click;
+            // 
+            // toolTip1
+            // 
+            toolTip1.IsBalloon = true;
+            // 
+            // BtnSalvar
+            // 
+            BtnSalvar.Location = new Point(32, 76);
+            BtnSalvar.Name = "BtnSalvar";
+            BtnSalvar.Size = new Size(104, 30);
+            BtnSalvar.TabIndex = 4;
+            BtnSalvar.Text = "&Salvar";
+            BtnSalvar.UseVisualStyleBackColor = true;
+            BtnSalvar.Click += BtnSalvar_Click;
+            // 
+            // BtnFechar
+            // 
+            BtnFechar.Location = new Point(152, 76);
+            BtnFechar.Name = "BtnFechar";
+            BtnFechar.Size = new Size(104, 30);
+            BtnFechar.TabIndex = 5;
+            BtnFechar.Text = "&Fechar";
+            BtnFechar.UseVisualStyleBackColor = true;
+            BtnFechar.Click += BtnFechar_Click;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
+            dataGridView1.Location = new Point(0, 127);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(545, 413);
+            dataGridView1.TabIndex = 7;
+            // 
+            // Codigo
+            // 
+            Codigo.HeaderText = "Código";
+            Codigo.Name = "Codigo";
+            // 
+            // Nome
+            // 
+            Nome.HeaderText = "Nome";
+            Nome.Name = "Nome";
+            Nome.Width = 200;
+            // 
+            // BtnAlterar
+            // 
+            BtnAlterar.HeaderText = "Alterar";
+            BtnAlterar.Name = "BtnAlterar";
+            // 
+            // BtnExcluir
+            // 
+            BtnExcluir.HeaderText = "Excluir";
+            BtnExcluir.Name = "BtnExcluir";
             // 
             // FrmGenero
             // 
+            AcceptButton = BtnSalvar;
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            CancelButton = BtnFechar;
+            ClientSize = new Size(545, 542);
+            Controls.Add(dataGridView1);
+            Controls.Add(BtnFechar);
+            Controls.Add(BtnSalvar);
+            Controls.Add(label1);
+            Controls.Add(LblCodigo);
+            Controls.Add(textBox2);
+            Controls.Add(TxtCodigo);
             Name = "FrmGenero";
             Text = "Cadastro de Gêneros de Filme";
+            Activated += FrmGenero_Activated;
+            FormClosed += FrmGenero_FormClosed;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private TextBox TxtCodigo;
+        private TextBox textBox2;
+        private Label LblCodigo;
+        private Label label1;
+        private ToolTip toolTip1;
+        private Button BtnSalvar;
+        private Button BtnFechar;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewButtonColumn BtnAlterar;
+        private DataGridViewButtonColumn BtnExcluir;
     }
 }

@@ -16,5 +16,32 @@ namespace Biblioteca
         {
             InitializeComponent();
         }
+
+        private void FrmGenero_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ((FrmMenu)this.MdiParent).MnuGenero.Enabled = true;
+            ((FrmMenu)this.MdiParent).MnSGenero.Enabled = true;
+            ((FrmMenu)this.MdiParent).LblDisplay.Text = "";
+        }
+
+        private void FrmGenero_Activated(object sender, EventArgs e)
+        {
+            ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Gênero";
+        }
+
+        private void BtnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnSalvar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
