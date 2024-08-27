@@ -1,4 +1,5 @@
-﻿using Biblioteca.Model;
+﻿using Biblioteca.Helper;
+using Biblioteca.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,8 @@ namespace Biblioteca
 {
     public partial class FrmGenero : Form
     {
+        public bool Incluir = true;
+
         public FrmGenero()
         {
             InitializeComponent();
@@ -35,14 +38,59 @@ namespace Biblioteca
             this.Close();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private bool ValidaControles()
         {
+            int Codigo;
 
+            if (int.TryParse(TxtCodigo.Text, out Codigo)==false)
+            {
+                MessageBox.Show("O campo código não é numérico.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCodigo.Focus();
+                return false;
+            }
+
+            if(TxtNome.Text.Trim()=="")
+            {
+                MessageBox.Show("O campo nome é de preenchimento obrigatório.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtNome.Focus();
+                return false;
+            }
+
+            return true;
+        }
+
+        private void LimpaControles()
+        {
+            TxtCodigo.Text = "";
+            TxtNome.Text = "";
+            TxtCodigo.Focus();
         }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
+            if (ValidaControles())
+            {
 
+                //Inclui um gênero na lista
+
+                if (Incluir)
+                {
+                    Genero oGenero = new Genero
+                    {
+                        Codigo = int.Parse(TxtCodigo.Text),
+                        Nome = TxtNome.Text
+                    };
+
+                    oGenero.Incluir();
+                   
+                }
+                else
+                {
+                    //Altera o gênero selecionado
+                }
+                CarregaGrid();
+                LimpaControles();
+            }
         }
 
         private void CarregaGrid()

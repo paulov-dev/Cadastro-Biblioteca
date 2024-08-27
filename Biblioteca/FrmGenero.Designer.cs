@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             TxtCodigo = new TextBox();
-            textBox2 = new TextBox();
+            TxtNome = new TextBox();
             LblCodigo = new Label();
             label1 = new Label();
             toolTip1 = new ToolTip(components);
@@ -53,14 +53,14 @@
             TxtCodigo.TabIndex = 1;
             toolTip1.SetToolTip(TxtCodigo, "Código numérico do gênero");
             // 
-            // textBox2
+            // TxtNome
             // 
-            textBox2.Location = new Point(84, 47);
-            textBox2.MaxLength = 50;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(432, 23);
-            textBox2.TabIndex = 3;
-            toolTip1.SetToolTip(textBox2, "Nome do Gênero do Filme");
+            TxtNome.Location = new Point(84, 47);
+            TxtNome.MaxLength = 50;
+            TxtNome.Name = "TxtNome";
+            TxtNome.Size = new Size(432, 23);
+            TxtNome.TabIndex = 3;
+            toolTip1.SetToolTip(TxtNome, "Nome do Gênero do Filme");
             // 
             // LblCodigo
             // 
@@ -79,7 +79,6 @@
             label1.Size = new Size(40, 15);
             label1.TabIndex = 2;
             label1.Text = "Nome";
-            label1.Click += label1_Click;
             // 
             // toolTip1
             // 
@@ -114,7 +113,7 @@
             GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
             GrdItens.Location = new Point(0, 127);
             GrdItens.Name = "GrdItens";
-            GrdItens.Size = new Size(545, 413);
+            GrdItens.Size = new Size(559, 413);
             GrdItens.TabIndex = 7;
             // 
             // Codigo
@@ -146,13 +145,13 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             CancelButton = BtnFechar;
-            ClientSize = new Size(545, 542);
+            ClientSize = new Size(559, 542);
             Controls.Add(GrdItens);
             Controls.Add(BtnFechar);
             Controls.Add(BtnSalvar);
             Controls.Add(label1);
             Controls.Add(LblCodigo);
-            Controls.Add(textBox2);
+            Controls.Add(TxtNome);
             Controls.Add(TxtCodigo);
             Name = "FrmGenero";
             Text = "Cadastro de Gêneros de Filme";
@@ -167,7 +166,7 @@
         #endregion
 
         private TextBox TxtCodigo;
-        private TextBox textBox2;
+        private TextBox TxtNome;
         private Label LblCodigo;
         private Label label1;
         private ToolTip toolTip1;
