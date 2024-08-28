@@ -149,6 +149,11 @@ namespace Biblioteca
                 else if (GrdItens.Columns[e.ColumnIndex].Name == "BtnExcluir")
                 {
                     //Clicou no botao excluir
+                    if(MessageBox.Show("Confirme a exclusão.", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        objSelecionado.Excluir();
+                        CarregaGrid();
+                    } 
                 }
             }
         }

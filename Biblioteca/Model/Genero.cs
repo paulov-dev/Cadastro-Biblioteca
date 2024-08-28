@@ -50,5 +50,11 @@ namespace Biblioteca.Model
                 GeneroColecao.Nome = oGenero.Nome;
             }
         }
+
+        public void Excluir()
+        {
+            DataHelper.ListaGenero.Remove(this);
+        }
+
     }
 }
