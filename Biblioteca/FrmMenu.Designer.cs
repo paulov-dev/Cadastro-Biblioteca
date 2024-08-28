@@ -33,12 +33,12 @@
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
             MnuGenero = new ToolStripMenuItem();
             MnuSair = new ToolStripMenuItem();
+            MnuAulas = new ToolStripMenuItem();
+            MnuAula01 = new ToolStripMenuItem();
             MnuSuspenso = new ContextMenuStrip(components);
             MnSGenero = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             LblDisplay = new ToolStripStatusLabel();
-            MnuAulas = new ToolStripMenuItem();
-            MnuAula01 = new ToolStripMenuItem();
             menuStrip1.SuspendLayout();
             MnuSuspenso.SuspendLayout();
             statusStrip1.SuspendLayout();
@@ -74,6 +74,20 @@
             MnuSair.Text = "Sai&r";
             MnuSair.Click += MnuSair_Click;
             // 
+            // MnuAulas
+            // 
+            MnuAulas.DropDownItems.AddRange(new ToolStripItem[] { MnuAula01 });
+            MnuAulas.Name = "MnuAulas";
+            MnuAulas.Size = new Size(48, 20);
+            MnuAulas.Text = "&Aulas";
+            // 
+            // MnuAula01
+            // 
+            MnuAula01.Name = "MnuAula01";
+            MnuAula01.Size = new Size(110, 22);
+            MnuAula01.Text = "Aula01";
+            MnuAula01.Click += MnuAula01_Click;
+            // 
             // MnuSuspenso
             // 
             MnuSuspenso.Items.AddRange(new ToolStripItem[] { MnSGenero });
@@ -103,20 +117,6 @@
             LblDisplay.DisplayStyle = ToolStripItemDisplayStyle.Text;
             LblDisplay.Name = "LblDisplay";
             LblDisplay.Size = new Size(300, 17);
-            // 
-            // MnuAulas
-            // 
-            MnuAulas.DropDownItems.AddRange(new ToolStripItem[] { MnuAula01 });
-            MnuAulas.Name = "MnuAulas";
-            MnuAulas.Size = new Size(48, 20);
-            MnuAulas.Text = "&Aulas";
-            // 
-            // MnuAula01
-            // 
-            MnuAula01.Name = "MnuAula01";
-            MnuAula01.Size = new Size(180, 22);
-            MnuAula01.Text = "Aula01";
-            MnuAula01.Click += MnuAula01_Click;
             // 
             // FrmMenu
             // 

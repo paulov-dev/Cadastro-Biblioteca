@@ -9,7 +9,7 @@ namespace Biblioteca.Model
 {
     public class Genero
     {
-        public int Codigo { get; set; }
+        public int id { get; set; }
         public string? Nome { get; set; }
 
         public static List<Genero> ListarTodos()
@@ -19,12 +19,12 @@ namespace Biblioteca.Model
 
         public static Genero? Seleciona(int Codigo)
         {
-            return (from p in DataHelper.ListaGenero where p.Codigo == Codigo select p).FirstOrDefault();
+            return (from p in DataHelper.ListaGenero where p.id == Codigo select p).FirstOrDefault();
         }
 
         public void Incluir()
-        { // PAREI AQUI
-            Genero? oGeneroSelecionado = Genero.Seleciona(this.Codigo);
+        { 
+            Genero? oGeneroSelecionado = Genero.Seleciona(this.id);
             if (oGeneroSelecionado != null)
             {
                 throw new Exception($"O código informado está sendo utilizado no gênero {oGeneroSelecionado.Nome}");
@@ -34,6 +34,21 @@ namespace Biblioteca.Model
                 DataHelper.ListaGenero.Add(this);
             }
            
+        }
+
+        public static void Alterar(Genero oGenero)
+        {
+            Genero? GeneroColecao = Seleciona(oGenero.id);
+
+            if (GeneroColecao == null)
+            {
+                throw new Exception($"O objeto informado não existe mais no contexto.");
+            }
+            else
+            {
+                //GeneroColecao.id = oGenero.id;
+                GeneroColecao.Nome = oGenero.Nome;
+            }
         }
     }
 }

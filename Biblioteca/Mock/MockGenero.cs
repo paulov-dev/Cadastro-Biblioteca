@@ -14,11 +14,11 @@ namespace Biblioteca.Mock
         {
             List<Genero> oLista = new List<Genero>();
 
-            for (int i = 0; i < 10; i++) 
+            for (int i = 1; i < 11; i++) 
             {
                 Genero oGenero = new Genero
                 {
-                    Codigo = i,
+                    id = i,
                     Nome = $"Gênero {i}"
                 };
                 oLista.Add(oGenero);

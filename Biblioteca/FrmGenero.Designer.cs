@@ -115,10 +115,11 @@
             GrdItens.Name = "GrdItens";
             GrdItens.Size = new Size(559, 413);
             GrdItens.TabIndex = 7;
+            GrdItens.CellClick += GrdItens_CellClick;
             // 
             // Codigo
             // 
-            Codigo.DataPropertyName = "Codigo";
+            Codigo.DataPropertyName = "id";
             Codigo.HeaderText = "Código";
             Codigo.Name = "Codigo";
             // 
