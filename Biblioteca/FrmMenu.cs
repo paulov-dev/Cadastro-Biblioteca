@@ -34,5 +34,20 @@ namespace Biblioteca
             oFrm.Show();
 
         }
+
+        private void MnuAutor_Click_1(object sender, EventArgs e)
+        {
+            FrmAutor oFrm = new FrmAutor();
+            oFrm.MdiParent = this;
+            MnuAutor.Enabled = false;
+            MnSAutor.Enabled = false;
+            oFrm.Show();
+        }
+
+        private void MnSAutor_Click(object sender, EventArgs e)
+        {
+            MnuAutor_Click_1(sender, e);
+        }
+
     }
 }

@@ -16,6 +16,8 @@ namespace Biblioteca
 
             MockGenero.CarregaGenero();
 
+            MockAutor.CarregaAutor();
+
             Application.Run(new FrmMenu());
         }
     }
