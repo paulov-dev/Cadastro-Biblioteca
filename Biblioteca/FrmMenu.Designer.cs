@@ -167,7 +167,7 @@
         public ToolStripStatusLabel LblDisplay;
         private ToolStripMenuItem MnuAulas;
         private ToolStripMenuItem MnuAula01;
-        private ToolStripMenuItem MnuAutor;
-        private ToolStripMenuItem MnSAutor;
+        public ToolStripMenuItem MnuAutor;
+        public ToolStripMenuItem MnSAutor;
     }
 }

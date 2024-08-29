@@ -27,8 +27,8 @@ namespace Biblioteca
 
         private void FrmAutor_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ((FrmMenu)this.MdiParent).MnuGenero.Enabled = true;
-            ((FrmMenu)this.MdiParent).MnSGenero.Enabled = true;
+            ((FrmMenu)this.MdiParent).MnuAutor.Enabled = true;
+            ((FrmMenu)this.MdiParent).MnSAutor.Enabled = true;
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "";
         }
 
@@ -149,6 +149,11 @@ namespace Biblioteca
                     }
                 }
             }
+        }
+
+        private void BtnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

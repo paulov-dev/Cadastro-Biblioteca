@@ -53,7 +53,7 @@
             GrdItens.Name = "GrdItens";
             GrdItens.Size = new Size(588, 465);
             GrdItens.TabIndex = 14;
-            GrdItens.CellClick += this.GrdItens_CellClick;
+            GrdItens.CellClick += GrdItens_CellClick;
             // 
             // Codigo
             // 
@@ -86,6 +86,7 @@
             BtnFechar.TabIndex = 13;
             BtnFechar.Text = "&Fechar";
             BtnFechar.UseVisualStyleBackColor = true;
+            BtnFechar.Click += BtnFechar_Click;
             // 
             // BtnSalvar
             // 
