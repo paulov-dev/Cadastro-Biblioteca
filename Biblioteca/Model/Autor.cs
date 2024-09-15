@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Helper;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,23 @@ namespace Biblioteca.Model
 
         public static List<Autor> ListarTodos()
         {
-            return (from p in DataHelper.ListaAutor select p).ToList();
+            using (var oCn = DataHelper.Conexao())
+            {
+                List <Autor> Retorno = new List<Autor>();
+                string SQL = "SELECT id, Nome FROM Autor";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                SqlDataReader oDr = comando.ExecuteReader();
+
+                while (oDr.Read())
+                {
+                    Autor oAutor = new Autor();
+                    oAutor.idAutor  = oDr.GetInt32(oDr.GetOrdinal("id"));
+                    oAutor.nomeAutor = oDr.GetString(oDr.GetOrdinal("nome"));
+                    Retorno.Add(oAutor);
+                }
+                oDr.Close();
+                return Retorno;
+            }
         }
 
         public static Autor? Seleciona(int Codigo)
@@ -24,36 +41,33 @@ namespace Biblioteca.Model
 
         public void Incluir()
         {
-            Autor? oAutorSelecionado = Autor.Seleciona(this.idAutor);
-            if (oAutorSelecionado != null)
+            using (var oCn = DataHelper.Conexao())
             {
-                throw new Exception($"O código informado está sendo utilizado no autor {oAutorSelecionado.nomeAutor}");
+                string SQL = $"INSERT INTO Autor VALUES ('{this.idAutor}', '{this.nomeAutor}')";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
             }
-            else
-            {
-                DataHelper.ListaAutor.Add(this);
-            }
-
         }
 
         public static void Alterar(Autor oAutor)
         {
-            Autor? AutorColecao = Seleciona(oAutor.idAutor);
-
-            if (AutorColecao == null)
+            using (var oCn = DataHelper.Conexao())
             {
-                throw new Exception($"O objeto informado não existe mais no contexto.");
-            }
-            else
-            {
-                //GeneroColecao.id = oGenero.id;
-                AutorColecao.nomeAutor = oAutor.nomeAutor;
+                string SQL = $"UPDATE Autor set Nome = '{oAutor.nomeAutor}' WHERE id = {oAutor.idAutor}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
             }
         }
 
         public void Excluir()
         {
-            DataHelper.ListaAutor.Remove(this);
+            using (var oCn = DataHelper.Conexao())
+            {
+                string SQL = $"DELETE FROM Autor WHERE id = {this.idAutor}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
+                DataHelper.ListaAutor.Remove(this);
+            }
         }
     }
 }
