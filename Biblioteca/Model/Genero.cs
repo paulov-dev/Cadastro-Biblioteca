@@ -1,4 +1,5 @@
 ﻿using Biblioteca.Helper;
+using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +15,23 @@ namespace Biblioteca.Model
 
         public static List<Genero> ListarTodos()
         {
-            return (from p in DataHelper.ListaGenero select p).ToList();
+            using (var oCn = DataHelper.Conexao())
+            {
+                List <Genero> Retorno = new List<Genero>();
+                string SQL = "SELECT id, Nome FROM Genero";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                SqlDataReader oDr = comando.ExecuteReader();
+
+                while (oDr.Read())
+                {
+                    Genero oGenero = new Genero();
+                    oGenero.id = oDr.GetInt32(oDr.GetOrdinal("id"));
+                    oGenero.Nome = oDr.GetString(oDr.GetOrdinal("nome"));
+                    Retorno.Add(oGenero);
+                }
+                oDr.Close();
+                return Retorno;
+            }
         }
 
         public static Genero? Seleciona(int Codigo)
