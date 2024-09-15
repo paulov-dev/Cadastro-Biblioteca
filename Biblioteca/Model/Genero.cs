@@ -40,37 +40,34 @@ namespace Biblioteca.Model
         }
 
         public void Incluir()
-        { 
-            Genero? oGeneroSelecionado = Genero.Seleciona(this.id);
-            if (oGeneroSelecionado != null)
+        {
+            using (var oCn = DataHelper.Conexao())
             {
-                throw new Exception($"O código informado está sendo utilizado no gênero {oGeneroSelecionado.Nome}");
+                string SQL = $"INSERT INTO Genero VALUES ('{this.id}','{this.Nome.Replace("'","")}')";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
             }
-            else
-            {
-                DataHelper.ListaGenero.Add(this);
-            }
-           
         }
 
         public static void Alterar(Genero oGenero)
         {
-            Genero? GeneroColecao = Seleciona(oGenero.id);
-
-            if (GeneroColecao == null)
+            using (var oCn = DataHelper.Conexao())
             {
-                throw new Exception($"O objeto informado não existe mais no contexto.");
-            }
-            else
-            {
-                //GeneroColecao.id = oGenero.id;
-                GeneroColecao.Nome = oGenero.Nome;
+                string SQL = $"UPDATE Genero set Nome = '{oGenero.Nome}' WHERE id = {oGenero.id}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
             }
         }
 
         public void Excluir()
         {
-            DataHelper.ListaGenero.Remove(this);
+            using (var oCn = DataHelper.Conexao())
+            {
+                string SQL = $"DELETE FROM Genero WHERE id = {this.id}";
+                SqlCommand comando = new SqlCommand(SQL, oCn);
+                comando.ExecuteNonQuery();
+                DataHelper.ListaGenero.Remove(this);
+            }
         }
 
     }
