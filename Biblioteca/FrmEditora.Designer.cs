@@ -1,6 +1,6 @@
 ﻿namespace Biblioteca
 {
-    partial class FrmAutor
+    partial class FrmEditora
     {
         /// <summary>
         /// Required designer variable.
@@ -49,21 +49,21 @@
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
-            GrdItens.Location = new Point(0, 102);
+            GrdItens.Location = new Point(-2, 114);
             GrdItens.Name = "GrdItens";
-            GrdItens.Size = new Size(588, 465);
+            GrdItens.Size = new Size(538, 441);
             GrdItens.TabIndex = 14;
-            GrdItens.CellClick += GrdItens_CellClick;
+            GrdItens.CellClick += GrdItens_CellClick_1;
             // 
             // Codigo
             // 
-            Codigo.DataPropertyName = "idAutor";
+            Codigo.DataPropertyName = "idEditora";
             Codigo.HeaderText = "Código";
             Codigo.Name = "Codigo";
             // 
             // Nome
             // 
-            Nome.DataPropertyName = "nomeAutor";
+            Nome.DataPropertyName = "NomeEditora";
             Nome.HeaderText = "Nome";
             Nome.Name = "Nome";
             Nome.Width = 200;
@@ -80,7 +80,7 @@
             // 
             // BtnFechar
             // 
-            BtnFechar.Location = new Point(152, 51);
+            BtnFechar.Location = new Point(132, 61);
             BtnFechar.Name = "BtnFechar";
             BtnFechar.Size = new Size(104, 30);
             BtnFechar.TabIndex = 13;
@@ -90,7 +90,7 @@
             // 
             // BtnSalvar
             // 
-            BtnSalvar.Location = new Point(32, 51);
+            BtnSalvar.Location = new Point(12, 61);
             BtnSalvar.Name = "BtnSalvar";
             BtnSalvar.Size = new Size(104, 30);
             BtnSalvar.TabIndex = 12;
@@ -101,7 +101,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(107, 4);
+            label1.Location = new Point(87, 14);
             label1.Name = "label1";
             label1.Size = new Size(40, 15);
             label1.TabIndex = 10;
@@ -110,7 +110,7 @@
             // LblCodigo
             // 
             LblCodigo.AutoSize = true;
-            LblCodigo.Location = new Point(32, 4);
+            LblCodigo.Location = new Point(12, 14);
             LblCodigo.Name = "LblCodigo";
             LblCodigo.Size = new Size(46, 15);
             LblCodigo.TabIndex = 8;
@@ -118,7 +118,7 @@
             // 
             // TxtNome
             // 
-            TxtNome.Location = new Point(84, 22);
+            TxtNome.Location = new Point(64, 32);
             TxtNome.MaxLength = 50;
             TxtNome.Name = "TxtNome";
             TxtNome.Size = new Size(432, 23);
@@ -126,17 +126,17 @@
             // 
             // TxtCodigo
             // 
-            TxtCodigo.Location = new Point(32, 22);
+            TxtCodigo.Location = new Point(12, 32);
             TxtCodigo.MaxLength = 4;
             TxtCodigo.Name = "TxtCodigo";
             TxtCodigo.Size = new Size(46, 23);
             TxtCodigo.TabIndex = 9;
             // 
-            // FrmAutor
+            // FrmEditora
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(586, 565);
+            ClientSize = new Size(534, 554);
             Controls.Add(GrdItens);
             Controls.Add(BtnFechar);
             Controls.Add(BtnSalvar);
@@ -144,11 +144,11 @@
             Controls.Add(LblCodigo);
             Controls.Add(TxtNome);
             Controls.Add(TxtCodigo);
-            Name = "FrmAutor";
-            Text = "Cadastrar um Autor";
-            Activated += FrmAutor_Activated;
-            FormClosed += FrmAutor_FormClosed;
-            Load += FrmAutor_Load;
+            Name = "FrmEditora";
+            Text = "Cadastrar Editora";
+            Activated += FrmEditora_Activated;
+            FormClosed += FrmEditora_FormClosed;
+            Load += FrmEditora_Load;
             ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();
             ResumeLayout(false);
             PerformLayout();

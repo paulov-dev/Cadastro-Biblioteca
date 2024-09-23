@@ -18,6 +18,8 @@ namespace Biblioteca
 
             MockAutor.CarregaAutor();
 
+            MockEditora.CarregaEditora();
+
             Application.Run(new FrmMenu());
         }
     }

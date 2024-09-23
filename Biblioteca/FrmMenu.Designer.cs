@@ -31,16 +31,16 @@
             components = new System.ComponentModel.Container();
             menuStrip1 = new MenuStrip();
             cadastrosToolStripMenuItem = new ToolStripMenuItem();
-            MnuAutor = new ToolStripMenuItem();
             MnuGenero = new ToolStripMenuItem();
-            MnuIdioma = new ToolStripMenuItem();
+            MnuAutor = new ToolStripMenuItem();
+            MnuEditora = new ToolStripMenuItem();
             MnuSair = new ToolStripMenuItem();
             MnuAulas = new ToolStripMenuItem();
             MnuAula01 = new ToolStripMenuItem();
             MnuSuspenso = new ContextMenuStrip(components);
             MnSGenero = new ToolStripMenuItem();
             MnSAutor = new ToolStripMenuItem();
-            MnSIdioma = new ToolStripMenuItem();
+            MnSEditora = new ToolStripMenuItem();
             statusStrip1 = new StatusStrip();
             LblDisplay = new ToolStripStatusLabel();
             menuStrip1.SuspendLayout();
@@ -56,22 +56,13 @@
             menuStrip1.Size = new Size(1059, 24);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
-            menuStrip1.ItemClicked += menuStrip1_ItemClicked;
             // 
             // cadastrosToolStripMenuItem
             // 
-            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { MnuAutor, MnuGenero, MnuIdioma, MnuSair });
+            cadastrosToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { MnuGenero, MnuAutor, MnuEditora, MnuSair });
             cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
             cadastrosToolStripMenuItem.Size = new Size(71, 20);
             cadastrosToolStripMenuItem.Text = "&Cadastros";
-            cadastrosToolStripMenuItem.Click += cadastrosToolStripMenuItem_Click;
-            // 
-            // MnuAutor
-            // 
-            MnuAutor.Name = "MnuAutor";
-            MnuAutor.Size = new Size(180, 22);
-            MnuAutor.Text = "&Autor";
-            MnuAutor.Click += MnuAutor_Click_1;
             // 
             // MnuGenero
             // 
@@ -80,12 +71,19 @@
             MnuGenero.Text = "&Gênero";
             MnuGenero.Click += MnuGenero_Click;
             // 
-            // MnuIdioma
+            // MnuAutor
             // 
-            MnuIdioma.Name = "MnuIdioma";
-            MnuIdioma.Size = new Size(180, 22);
-            MnuIdioma.Text = "&Idioma";
-            MnuIdioma.Click += MnuIdioma_Click;
+            MnuAutor.Name = "MnuAutor";
+            MnuAutor.Size = new Size(180, 22);
+            MnuAutor.Text = "&Autor";
+            MnuAutor.Click += MnuAutor_Click_1;
+            // 
+            // MnuEditora
+            // 
+            MnuEditora.Name = "MnuEditora";
+            MnuEditora.Size = new Size(180, 22);
+            MnuEditora.Text = "&Editora";
+            MnuEditora.Click += MnuEditora_Click;
             // 
             // MnuSair
             // 
@@ -110,30 +108,30 @@
             // 
             // MnuSuspenso
             // 
-            MnuSuspenso.Items.AddRange(new ToolStripItem[] { MnSGenero, MnSAutor, MnSIdioma });
+            MnuSuspenso.Items.AddRange(new ToolStripItem[] { MnSGenero, MnSAutor, MnSEditora });
             MnuSuspenso.Name = "MnuSuspenso";
-            MnuSuspenso.Size = new Size(113, 70);
-            MnuSuspenso.Opening += MnuSuspenso_Opening;
+            MnuSuspenso.Size = new Size(181, 92);
             // 
             // MnSGenero
             // 
             MnSGenero.Name = "MnSGenero";
-            MnSGenero.Size = new Size(112, 22);
+            MnSGenero.Size = new Size(180, 22);
             MnSGenero.Text = "&Gênero";
             MnSGenero.Click += MnSGenero_Click;
             // 
             // MnSAutor
             // 
             MnSAutor.Name = "MnSAutor";
-            MnSAutor.Size = new Size(112, 22);
+            MnSAutor.Size = new Size(180, 22);
             MnSAutor.Text = "&Autor";
             MnSAutor.Click += MnSAutor_Click;
             // 
-            // MnSIdioma
+            // MnSEditora
             // 
-            MnSIdioma.Name = "MnSIdioma";
-            MnSIdioma.Size = new Size(112, 22);
-            MnSIdioma.Text = "&Idioma";
+            MnSEditora.Name = "MnSEditora";
+            MnSEditora.Size = new Size(180, 22);
+            MnSEditora.Text = "&Editora";
+            MnSEditora.Click += MnSEditora_Click;
             // 
             // statusStrip1
             // 
@@ -165,7 +163,6 @@
             Name = "FrmMenu";
             Text = "Sistema de biblioteca";
             WindowState = FormWindowState.Maximized;
-            Load += FrmMenu_Load;
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             MnuSuspenso.ResumeLayout(false);
@@ -188,7 +185,7 @@
         private ToolStripMenuItem MnuAula01;
         public ToolStripMenuItem MnuAutor;
         public ToolStripMenuItem MnSAutor;
-        public ToolStripMenuItem MnuIdioma;
-        public ToolStripMenuItem MnSIdioma;
+        public ToolStripMenuItem MnuEditora;
+        public ToolStripMenuItem MnSEditora;
     }
 }

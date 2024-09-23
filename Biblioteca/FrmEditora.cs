@@ -11,38 +11,37 @@ using System.Windows.Forms;
 
 namespace Biblioteca
 {
-    public partial class FrmAutor : Form
+    public partial class FrmEditora : Form
     {
         public bool Incluir = true;
 
-        public FrmAutor()
+        public FrmEditora()
         {
             InitializeComponent();
         }
 
-        private void FrmAutor_Activated(object sender, EventArgs e)
+        private void FrmEditora_Activated(object sender, EventArgs e)
         {
-            ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Autor";
+            ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Editora";
         }
 
-        private void FrmAutor_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmEditora_FormClosed(object sender, FormClosedEventArgs e)
         {
-            ((FrmMenu)this.MdiParent).MnuAutor.Enabled = true;
-            ((FrmMenu)this.MdiParent).MnSAutor.Enabled = true;
+            ((FrmMenu)this.MdiParent).MnuEditora.Enabled = true;
+            ((FrmMenu)this.MdiParent).MnSEditora.Enabled = true;
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "";
         }
 
         private void CarregaGrid()
         {
             GrdItens.AutoGenerateColumns = false;
-            GrdItens.DataSource = Autor.ListarTodos();
+            GrdItens.DataSource = Editora.ListarTodos();
         }
 
-        private void FrmAutor_Load(object sender, EventArgs e)
+        private void FrmEditora_Load(object sender, EventArgs e)
         {
             CarregaGrid();
         }
-
         private bool ValidaControles()
         {
             int Codigo;
@@ -80,21 +79,21 @@ namespace Biblioteca
 
                 if (Incluir)
                 {
-                    Autor oAutor = new Autor
+                    Editora oEditora = new Editora
                     {
-                        idAutor = int.Parse(TxtCodigo.Text),
-                        nomeAutor = TxtNome.Text
+                        idEditora = int.Parse(TxtCodigo.Text),
+                        NomeEditora = TxtNome.Text
                     };
 
                     try
                     {
-                        oAutor.Incluir();
+                        oEditora.Incluir();
                         CarregaGrid();
                         LimpaControles();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Um erro ocorreu ao incluir o autor: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Um erro ocorreu ao incluir a editora: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TxtCodigo.Focus();
                     }
 
@@ -103,14 +102,14 @@ namespace Biblioteca
                 {
                     //Altera o gênero selecionado                    
 
-                    Autor oAutor = new Autor
+                    Editora oEditora = new Editora
                     {
-                        idAutor = int.Parse(TxtCodigo.Text),
-                        nomeAutor = TxtNome.Text
+                        idEditora = int.Parse(TxtCodigo.Text),
+                        NomeEditora = TxtNome.Text
                     };
                     try
                     {
-                        Autor.Alterar(oAutor);
+                        Editora.Alterar(oEditora);
                         CarregaGrid();
                         LimpaControles();
                         Incluir = true;
@@ -118,23 +117,24 @@ namespace Biblioteca
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Um erro ocorreu ao alterar o autor: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Um erro ocorreu ao alterar a Editora: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TxtCodigo.Focus();
                     }
                 }
 
             }
         }
-        private void GrdItens_CellClick(object sender, DataGridViewCellEventArgs e)
+
+        private void GrdItens_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (GrdItens.Rows[e.RowIndex].DataBoundItem != null)
             {
-                Autor objSelecionado = (Autor)GrdItens.Rows[e.RowIndex].DataBoundItem;
+                Editora objSelecionado = (Editora)GrdItens.Rows[e.RowIndex].DataBoundItem;
                 if (GrdItens.Columns[e.ColumnIndex].Name == "BtnAlterar")
                 {
                     //Clicou no botao alterar
-                    TxtCodigo.Text = objSelecionado.idAutor.ToString();
-                    TxtNome.Text = objSelecionado.nomeAutor;
+                    TxtCodigo.Text = objSelecionado.idEditora.ToString();
+                    TxtNome.Text = objSelecionado.NomeEditora;
                     TxtCodigo.Enabled = false;
                     TxtNome.Focus();
                     Incluir = false;
