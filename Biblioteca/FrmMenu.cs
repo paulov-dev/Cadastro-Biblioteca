@@ -60,7 +60,16 @@ namespace Biblioteca
 
         private void MnSEditora_Click(object sender, EventArgs e)
         {
-            MnuEditora_Click(sender, e); 
+            MnuEditora_Click(sender, e);
+        }
+
+        private void MnuIdioma_Click(object sender, EventArgs e)
+        {
+            FrmIdioma oFrm = new FrmIdioma();
+            oFrm.MdiParent = this;
+            MnuIdioma.Enabled = false;
+            MnSIdioma.Enabled = false;
+            oFrm.Show();
         }
     }
 }

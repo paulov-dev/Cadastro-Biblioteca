@@ -15,6 +15,8 @@ namespace Biblioteca.Helper
     {
         public static List<Genero> ListaGenero { get; set; }
         public static List<Autor> ListaAutor { get; set; }
+        public static List<Editora> ListaEditora { get; set; }
+        public static List<Idioma> ListaIdioma { get; set; }
 
         public static SqlConnection Conexao()
         {
