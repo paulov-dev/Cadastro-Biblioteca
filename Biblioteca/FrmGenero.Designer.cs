@@ -116,6 +116,7 @@
             GrdItens.Size = new Size(559, 413);
             GrdItens.TabIndex = 7;
             GrdItens.CellClick += GrdItens_CellClick;
+            GrdItens.CellContentClick += GrdItens_CellContentClick;
             // 
             // Codigo
             // 

@@ -49,5 +49,38 @@ namespace Biblioteca
             MnuAutor_Click_1(sender, e);
         }
 
+
+        private void cadastrosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
+        }
+
+        private void MnuSuspenso_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void MnuIdioma_Click(object sender, EventArgs e)
+        {
+            FrmIdioma oFrm = new FrmIdioma();
+            oFrm.MdiParent = this;
+            MnuIdioma.Enabled = false;
+            MnSIdioma.Enabled = false;
+            oFrm.Show();
+        }
+        private void MnSIdioma_Click(object sender, EventArgs e)
+        {
+            MnuIdioma_Click(sender, e);
+        }
     }
 }

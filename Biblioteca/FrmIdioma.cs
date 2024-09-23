@@ -12,30 +12,36 @@ using System.Windows.Forms;
 
 namespace Biblioteca
 {
-    public partial class FrmGenero : Form
+    public partial class FrmIdioma : Form
     {
         public bool Incluir = true;
 
-        public FrmGenero()
+        public FrmIdioma()
         {
             InitializeComponent();
         }
 
-        private void FrmGenero_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmIdioma_Activated(object sender, EventArgs e)
         {
-            ((FrmMenu)this.MdiParent).MnuGenero.Enabled = true;
-            ((FrmMenu)this.MdiParent).MnSGenero.Enabled = true;
+            ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Idioma";
+        }
+
+        private void FrmIdioma_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            ((FrmMenu)this.MdiParent).MnuIdioma.Enabled = true;
+            ((FrmMenu)this.MdiParent).MnSIdioma.Enabled = true;
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "";
         }
 
-        private void FrmGenero_Activated(object sender, EventArgs e)
+        private void CarregaGrid()
         {
-            ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Gênero";
+            GrdItens.AutoGenerateColumns = false;
+            GrdItens.DataSource = Idioma.ListarTodos();
         }
 
-        private void BtnFechar_Click(object sender, EventArgs e)
+        private void FrmIdioma_Load(object sender, EventArgs e)
         {
-            this.Close();
+            CarregaGrid();
         }
 
         private bool ValidaControles()
@@ -75,21 +81,21 @@ namespace Biblioteca
 
                 if (Incluir)
                 {
-                    Genero oGenero = new Genero
+                    Idioma oIdioma = new Idioma
                     {
-                        id = int.Parse(TxtCodigo.Text),
-                        Nome = TxtNome.Text
+                        idIdioma = int.Parse(TxtCodigo.Text),
+                        nomeIdioma = TxtNome.Text
                     };
 
                     try
                     {
-                        oGenero.Incluir();
+                        oIdioma.Incluir();
                         CarregaGrid();
                         LimpaControles();
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Um erro ocorreu ao incluir o gênero: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Um erro ocorreu ao incluir o Idioma: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TxtCodigo.Focus();
                     }
 
@@ -98,14 +104,14 @@ namespace Biblioteca
                 {
                     //Altera o gênero selecionado                    
 
-                    Genero oGenero = new Genero
+                    Idioma oIdioma = new Idioma
                     {
-                        id = int.Parse(TxtCodigo.Text),
-                        Nome = TxtNome.Text
+                        idIdioma = int.Parse(TxtCodigo.Text),
+                        nomeIdioma = TxtNome.Text
                     };
                     try
                     {
-                        Genero.Alterar(oGenero);
+                        Idioma.Alterar(oIdioma);
                         CarregaGrid();
                         LimpaControles();
                         Incluir = true;
@@ -113,35 +119,23 @@ namespace Biblioteca
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Um erro ocorreu ao alterar o gênero: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Um erro ocorreu ao alterar o Idioma: {ex.Message}.", ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TxtCodigo.Focus();
                     }
                 }
 
             }
         }
-
-        private void CarregaGrid()
-        {
-            GrdItens.AutoGenerateColumns = false;
-            GrdItens.DataSource = Genero.ListarTodos();
-        }
-
-        private void FrmGenero_Load(object sender, EventArgs e)
-        {
-            CarregaGrid();
-        }
-
         private void GrdItens_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (GrdItens.Rows[e.RowIndex].DataBoundItem != null)
             {
-                Genero objSelecionado = (Genero)GrdItens.Rows[e.RowIndex].DataBoundItem;
+                Idioma objSelecionado = (Idioma)GrdItens.Rows[e.RowIndex].DataBoundItem;
                 if (GrdItens.Columns[e.ColumnIndex].Name == "BtnAlterar")
                 {
                     //Clicou no botao alterar
-                    TxtCodigo.Text = objSelecionado.id.ToString();
-                    TxtNome.Text = objSelecionado.Nome;
+                    TxtCodigo.Text = objSelecionado.idIdioma.ToString();
+                    TxtNome.Text = objSelecionado.nomeIdioma;
                     TxtCodigo.Enabled = false;
                     TxtNome.Focus();
                     Incluir = false;
@@ -158,7 +152,22 @@ namespace Biblioteca
             }
         }
 
+        private void BtnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void TxtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void GrdItens_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void TxtNome_TextChanged(object sender, EventArgs e)
         {
 
         }

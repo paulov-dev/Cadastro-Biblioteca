@@ -155,5 +155,20 @@ namespace Biblioteca
         {
             this.Close();
         }
+
+        private void TxtCodigo_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GrdItens_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void TxtNome_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
