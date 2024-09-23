@@ -71,5 +71,10 @@ namespace Biblioteca
             MnSIdioma.Enabled = false;
             oFrm.Show();
         }
+
+        private void MnSIdioma_Click(object sender, EventArgs e)
+        {
+            MnuIdioma_Click(sender, e);
+        }
     }
 }

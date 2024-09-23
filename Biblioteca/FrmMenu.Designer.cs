@@ -69,35 +69,35 @@
             // MnuGenero
             // 
             MnuGenero.Name = "MnuGenero";
-            MnuGenero.Size = new Size(180, 22);
+            MnuGenero.Size = new Size(112, 22);
             MnuGenero.Text = "&Gênero";
             MnuGenero.Click += MnuGenero_Click;
             // 
             // MnuAutor
             // 
             MnuAutor.Name = "MnuAutor";
-            MnuAutor.Size = new Size(180, 22);
+            MnuAutor.Size = new Size(112, 22);
             MnuAutor.Text = "&Autor";
             MnuAutor.Click += MnuAutor_Click_1;
             // 
             // MnuEditora
             // 
             MnuEditora.Name = "MnuEditora";
-            MnuEditora.Size = new Size(180, 22);
+            MnuEditora.Size = new Size(112, 22);
             MnuEditora.Text = "&Editora";
             MnuEditora.Click += MnuEditora_Click;
             // 
             // MnuIdioma
             // 
             MnuIdioma.Name = "MnuIdioma";
-            MnuIdioma.Size = new Size(180, 22);
+            MnuIdioma.Size = new Size(112, 22);
             MnuIdioma.Text = "&Idioma";
             MnuIdioma.Click += MnuIdioma_Click;
             // 
             // MnuSair
             // 
             MnuSair.Name = "MnuSair";
-            MnuSair.Size = new Size(180, 22);
+            MnuSair.Size = new Size(112, 22);
             MnuSair.Text = "Sai&r";
             MnuSair.Click += MnuSair_Click;
             // 
@@ -119,34 +119,35 @@
             // 
             MnuSuspenso.Items.AddRange(new ToolStripItem[] { MnSGenero, MnSAutor, MnSEditora, MnSIdioma });
             MnuSuspenso.Name = "MnuSuspenso";
-            MnuSuspenso.Size = new Size(113, 92);
+            MnuSuspenso.Size = new Size(181, 114);
             // 
             // MnSGenero
             // 
             MnSGenero.Name = "MnSGenero";
-            MnSGenero.Size = new Size(112, 22);
+            MnSGenero.Size = new Size(180, 22);
             MnSGenero.Text = "&Gênero";
             MnSGenero.Click += MnSGenero_Click;
             // 
             // MnSAutor
             // 
             MnSAutor.Name = "MnSAutor";
-            MnSAutor.Size = new Size(112, 22);
+            MnSAutor.Size = new Size(180, 22);
             MnSAutor.Text = "&Autor";
             MnSAutor.Click += MnSAutor_Click;
             // 
             // MnSEditora
             // 
             MnSEditora.Name = "MnSEditora";
-            MnSEditora.Size = new Size(112, 22);
+            MnSEditora.Size = new Size(180, 22);
             MnSEditora.Text = "&Editora";
             MnSEditora.Click += MnSEditora_Click;
             // 
             // MnSIdioma
             // 
             MnSIdioma.Name = "MnSIdioma";
-            MnSIdioma.Size = new Size(112, 22);
+            MnSIdioma.Size = new Size(180, 22);
             MnSIdioma.Text = "&Idioma";
+            MnSIdioma.Click += MnSIdioma_Click;
             // 
             // statusStrip1
             // 
