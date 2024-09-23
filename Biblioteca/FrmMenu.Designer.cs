@@ -69,28 +69,28 @@
             // MnuAutor
             // 
             MnuAutor.Name = "MnuAutor";
-            MnuAutor.Size = new Size(112, 22);
+            MnuAutor.Size = new Size(180, 22);
             MnuAutor.Text = "&Autor";
             MnuAutor.Click += MnuAutor_Click_1;
             // 
             // MnuGenero
             // 
             MnuGenero.Name = "MnuGenero";
-            MnuGenero.Size = new Size(112, 22);
+            MnuGenero.Size = new Size(180, 22);
             MnuGenero.Text = "&Gênero";
             MnuGenero.Click += MnuGenero_Click;
             // 
             // MnuIdioma
             // 
             MnuIdioma.Name = "MnuIdioma";
-            MnuIdioma.Size = new Size(112, 22);
+            MnuIdioma.Size = new Size(180, 22);
             MnuIdioma.Text = "&Idioma";
             MnuIdioma.Click += MnuIdioma_Click;
             // 
             // MnuSair
             // 
             MnuSair.Name = "MnuSair";
-            MnuSair.Size = new Size(112, 22);
+            MnuSair.Size = new Size(180, 22);
             MnuSair.Text = "Sai&r";
             MnuSair.Click += MnuSair_Click;
             // 
