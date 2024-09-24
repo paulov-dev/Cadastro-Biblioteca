@@ -20,6 +20,8 @@ namespace Biblioteca
 
             MockEditora.CarregaEditora();
 
+            MockIdioma.CarregaIdioma();
+
             Application.Run(new FrmMenu());
         }
     }
