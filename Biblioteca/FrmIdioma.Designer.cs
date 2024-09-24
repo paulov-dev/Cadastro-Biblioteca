@@ -53,7 +53,7 @@
             GrdItens.Name = "GrdItens";
             GrdItens.Size = new Size(559, 413);
             GrdItens.TabIndex = 14;
-            GrdItens.CellContentClick += GrdItens_CellContentClick;
+            GrdItens.CellClick += GrdItens_CellClick;
             // 
             // Codigo
             // 
@@ -123,7 +123,6 @@
             TxtNome.Name = "TxtNome";
             TxtNome.Size = new Size(432, 23);
             TxtNome.TabIndex = 11;
-            TxtNome.TextChanged += TxtNome_TextChanged;
             // 
             // TxtCodigo
             // 
@@ -132,7 +131,6 @@
             TxtCodigo.Name = "TxtCodigo";
             TxtCodigo.Size = new Size(46, 23);
             TxtCodigo.TabIndex = 9;
-            TxtCodigo.TextChanged += TxtCodigo_TextChanged;
             // 
             // FrmIdioma
             // 
