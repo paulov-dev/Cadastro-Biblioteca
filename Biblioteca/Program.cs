@@ -1,3 +1,4 @@
+using Biblioteca.Controller;
 using Biblioteca.Mock;
 
 namespace Biblioteca
@@ -21,6 +22,8 @@ namespace Biblioteca
             MockEditora.CarregaEditora();
 
             MockIdioma.CarregaIdioma();
+
+            MockUsuario.CarregaUsuario();
 
             Application.Run(new FrmMenu());
         }

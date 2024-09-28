@@ -1,3 +1,5 @@
+using Biblioteca.View;
+
 namespace Biblioteca
 {
     public partial class FrmMenu : Form
@@ -75,6 +77,20 @@ namespace Biblioteca
         private void MnSIdioma_Click(object sender, EventArgs e)
         {
             MnuIdioma_Click(sender, e);
+        }
+
+        private void MnuUsuario_Click(object sender, EventArgs e)
+        {
+            FrmUsuario oFrm = new FrmUsuario();
+            oFrm.MdiParent = this;
+            MnuUsuario.Enabled = false;
+            MnSUsuario.Enabled = false;
+            oFrm.Show();
+        }
+
+        private void MnSUsuario_Click(object sender, EventArgs e)
+        {
+            MnuUsuario_Click(sender, e );
         }
     }
 }

@@ -29,16 +29,16 @@
         private void InitializeComponent()
         {
             GrdItens = new DataGridView();
+            Codigo = new DataGridViewTextBoxColumn();
+            Nome = new DataGridViewTextBoxColumn();
+            BtnAlterar = new DataGridViewButtonColumn();
+            BtnExcluir = new DataGridViewButtonColumn();
             BtnFechar = new Button();
             BtnSalvar = new Button();
             label1 = new Label();
             LblCodigo = new Label();
             TxtNome = new TextBox();
             TxtCodigo = new TextBox();
-            Codigo = new DataGridViewTextBoxColumn();
-            Nome = new DataGridViewTextBoxColumn();
-            BtnAlterar = new DataGridViewButtonColumn();
-            BtnExcluir = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
@@ -46,13 +46,39 @@
             // 
             GrdItens.AllowUserToAddRows = false;
             GrdItens.AllowUserToDeleteRows = false;
+            GrdItens.AllowUserToResizeColumns = false;
+            GrdItens.AllowUserToResizeRows = false;
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
             GrdItens.Location = new Point(0, 99);
             GrdItens.Name = "GrdItens";
-            GrdItens.Size = new Size(563, 383);
+            GrdItens.Size = new Size(563, 468);
             GrdItens.TabIndex = 21;
+            GrdItens.CellClick += GrdItens_CellClick;
+            // 
+            // Codigo
+            // 
+            Codigo.DataPropertyName = "idUsuario";
+            Codigo.HeaderText = "Código";
+            Codigo.Name = "Codigo";
+            // 
+            // Nome
+            // 
+            Nome.DataPropertyName = "nomeUsuario";
+            Nome.HeaderText = "Nome";
+            Nome.Name = "Nome";
+            Nome.Width = 200;
+            // 
+            // BtnAlterar
+            // 
+            BtnAlterar.HeaderText = "Alterar";
+            BtnAlterar.Name = "BtnAlterar";
+            // 
+            // BtnExcluir
+            // 
+            BtnExcluir.HeaderText = "Excluir";
+            BtnExcluir.Name = "BtnExcluir";
             // 
             // BtnFechar
             // 
@@ -62,6 +88,7 @@
             BtnFechar.TabIndex = 20;
             BtnFechar.Text = "&Fechar";
             BtnFechar.UseVisualStyleBackColor = true;
+            BtnFechar.Click += BtnFechar_Click;
             // 
             // BtnSalvar
             // 
@@ -71,6 +98,7 @@
             BtnSalvar.TabIndex = 19;
             BtnSalvar.Text = "&Salvar";
             BtnSalvar.UseVisualStyleBackColor = true;
+            BtnSalvar.Click += BtnSalvar_Click;
             // 
             // label1
             // 
@@ -106,34 +134,11 @@
             TxtCodigo.Size = new Size(46, 23);
             TxtCodigo.TabIndex = 16;
             // 
-            // Codigo
-            // 
-            Codigo.DataPropertyName = "idUsuario";
-            Codigo.HeaderText = "Código";
-            Codigo.Name = "Codigo";
-            // 
-            // Nome
-            // 
-            Nome.DataPropertyName = "nomeUsuario";
-            Nome.HeaderText = "Nome";
-            Nome.Name = "Nome";
-            Nome.Width = 200;
-            // 
-            // BtnAlterar
-            // 
-            BtnAlterar.HeaderText = "Alterar";
-            BtnAlterar.Name = "BtnAlterar";
-            // 
-            // BtnExcluir
-            // 
-            BtnExcluir.HeaderText = "Excluir";
-            BtnExcluir.Name = "BtnExcluir";
-            // 
             // FrmUsuario
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(565, 482);
+            ClientSize = new Size(565, 567);
             Controls.Add(GrdItens);
             Controls.Add(BtnFechar);
             Controls.Add(BtnSalvar);
@@ -142,7 +147,10 @@
             Controls.Add(TxtNome);
             Controls.Add(TxtCodigo);
             Name = "FrmUsuario";
-            Text = "FrmUsuario";
+            Text = "Cadastro de Usuário";
+            Activated += FrmUsuario_Activated;
+            FormClosed += FrmUsuario_FormClosed;
+            Load += FrmUsuario_Load;
             ((System.ComponentModel.ISupportInitialize)GrdItens).EndInit();
             ResumeLayout(false);
             PerformLayout();
