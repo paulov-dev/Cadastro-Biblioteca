@@ -34,9 +34,27 @@ namespace Biblioteca.Model
             }
         }
 
-        public static Autor? Seleciona(int Codigo)
-        {
-            return (from p in DataHelper.ListaAutor where p.idAutor == Codigo select p).FirstOrDefault();
+        public static Autor? Seleciona(int id)
+        {            
+            using (var ocn = DataHelper.Conexao())
+            {
+                string sql = $"SELECT * FROM Autor WHERE id={id}";
+                SqlCommand oCmd = new SqlCommand(sql, ocn);
+                SqlDataReader oDr = oCmd.ExecuteReader();
+
+                Autor? Retorno = null;
+                while (oDr.Read())
+                {
+                    Retorno = new Autor
+                    {
+                        idAutor = oDr.GetInt32(oDr.GetOrdinal("id")),
+                        nomeAutor = oDr.GetString(oDr.GetOrdinal("nome"))
+                    };
+                }
+                oDr.Close();
+
+                return Retorno;
+            }
         }
 
         public void Incluir()

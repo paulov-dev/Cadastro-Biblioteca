@@ -144,21 +144,43 @@ namespace Biblioteca.View
             return true;
         }
 
+
+
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
             // Corrigir
             if (ValidaControles())
             {
+                if (Incluir)
+                {
+                    Livro oLivro = new Livro
+                    {
+                        idLivro = int.Parse(TxtCodigo.Text),
+                        isbn = int.Parse(TxtIsbn.Text),
+                        nomeLivro = TxtNome.Text,
+                        descricaoLivro = TxtDescricao.Text,
+                        edicaoLivro = int.Parse(TxtEdicao.Text),
+                        qtdPagLivro = int.Parse(TxtPag.Text),
+                        Autor = (Autor)CmbAutor.SelectedItem,
+                        Idioma = (Idioma)CmbIdioma.SelectedItem,
+                        Editora = (Editora)CmbEditora.SelectedItem,
+                        Genero = (Genero)CmbGenero.SelectedItem
+                    };
 
-                Livro oLivro = new Livro(
-                int.Parse(TxtCodigo.Text),
-                int.Parse(TxtIsbn.Text),
-                TxtNome.Text,
-                TxtDescricao.Text,
-                int.Parse(TxtEdicao.Text),
-                int.Parse(TxtPag.Text)
-                );
-
+                    try
+                    {
+                        oLivro.Incluir();
+                        //LimpaControles(); PROGRAMAR
+                        //CarregaGrid(); PROGRAMAR
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                } else
+                {
+                    // PROGRAMAR EDIÇÃO
+                } 
             }
         }
     }

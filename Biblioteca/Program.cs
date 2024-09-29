@@ -1,5 +1,6 @@
 using Biblioteca.Controller;
 using Biblioteca.Mock;
+using Biblioteca.Model;
 
 namespace Biblioteca
 {

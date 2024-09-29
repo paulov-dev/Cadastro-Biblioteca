@@ -29,13 +29,6 @@
         private void InitializeComponent()
         {
             GrdItens = new DataGridView();
-            Codigo = new DataGridViewTextBoxColumn();
-            Nome = new DataGridViewTextBoxColumn();
-            ISBN = new DataGridViewTextBoxColumn();
-            Paginas = new DataGridViewTextBoxColumn();
-            Descrição = new DataGridViewTextBoxColumn();
-            BtnAlterar = new DataGridViewButtonColumn();
-            BtnExcluir = new DataGridViewButtonColumn();
             BtnFechar = new Button();
             BtnSalvar = new Button();
             label1 = new Label();
@@ -67,54 +60,11 @@
             GrdItens.AllowUserToDeleteRows = false;
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, ISBN, Paginas, Descrição, BtnAlterar, BtnExcluir });
-            GrdItens.Location = new Point(-11, 211);
+            GrdItens.Location = new Point(0, 211);
             GrdItens.Name = "GrdItens";
             GrdItens.RowHeadersVisible = false;
-            GrdItens.Size = new Size(1049, 413);
+            GrdItens.Size = new Size(1114, 413);
             GrdItens.TabIndex = 10;
-            // 
-            // Codigo
-            // 
-            Codigo.DataPropertyName = "id";
-            Codigo.HeaderText = "Código";
-            Codigo.Name = "Codigo";
-            Codigo.Width = 50;
-            // 
-            // Nome
-            // 
-            Nome.DataPropertyName = "Nome";
-            Nome.HeaderText = "Nome";
-            Nome.Name = "Nome";
-            Nome.Width = 150;
-            // 
-            // ISBN
-            // 
-            ISBN.HeaderText = "ISBN";
-            ISBN.Name = "ISBN";
-            // 
-            // Paginas
-            // 
-            Paginas.HeaderText = "Páginas";
-            Paginas.Name = "Paginas";
-            // 
-            // Descrição
-            // 
-            Descrição.DataPropertyName = "Descricao";
-            Descrição.HeaderText = "Descrição";
-            Descrição.Name = "Descrição";
-            // 
-            // BtnAlterar
-            // 
-            BtnAlterar.HeaderText = "Alterar";
-            BtnAlterar.Name = "BtnAlterar";
-            BtnAlterar.Width = 50;
-            // 
-            // BtnExcluir
-            // 
-            BtnExcluir.HeaderText = "Excluir";
-            BtnExcluir.Name = "BtnExcluir";
-            BtnExcluir.Width = 50;
             // 
             // BtnFechar
             // 
@@ -309,7 +259,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1050, 627);
+            ClientSize = new Size(1115, 627);
             Controls.Add(CmbAutor);
             Controls.Add(label9);
             Controls.Add(label8);
@@ -368,12 +318,5 @@
         private TextBox TxtEdicao;
         public ComboBox CmbAutor;
         private Label label9;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Nome;
-        private DataGridViewTextBoxColumn ISBN;
-        private DataGridViewTextBoxColumn Paginas;
-        private DataGridViewTextBoxColumn Descrição;
-        private DataGridViewButtonColumn BtnAlterar;
-        private DataGridViewButtonColumn BtnExcluir;
     }
 }
