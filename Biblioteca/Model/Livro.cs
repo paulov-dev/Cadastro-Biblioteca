@@ -26,15 +26,5 @@ namespace Biblioteca.Model
             Edicao = edicao;
             QtdPaginas = qtdPaginas;
         }
-
-        public void CarregaIdiomas(ComboBox combobox)
-        {
-            List<Idioma> listaidiomas = Idioma.ListarTodos();
-
-            combobox.DisplayMember = "Nome";
-            combobox.ValueMember = "Id";
-
-            combobox.DataSource = listaidiomas;
-        }
     }
 }

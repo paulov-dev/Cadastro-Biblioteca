@@ -19,11 +19,6 @@ namespace Biblioteca.View
             InitializeComponent();
         }
 
-        private void FrmLivro_Activated(object sender, EventArgs e, Livro livro)
-        {
-            livro.CarregaIdiomas(CmbIdioma);
-        }
-
         private void FrmLivro_FormClosed(object sender, FormClosedEventArgs e)
         {
             ((FrmMenu)this.MdiParent).MnuLivro.Enabled = true;
@@ -58,8 +53,7 @@ namespace Biblioteca.View
                 MessageBox.Show("Idioma do livro é obrigatório", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 CmbIdioma.Focus();
                 return false;
-            }         
-
+            }
 
             return true;
         }
