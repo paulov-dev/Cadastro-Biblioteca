@@ -64,6 +64,12 @@ namespace Biblioteca.View
                 TxtCodigo.Focus();
                 return false;
             }
+            if (TxtDescricao.Text.Trim() == "")
+            {
+                MessageBox.Show("O campo Descrição do Livro é de preenchimento obrigatório.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCodigo.Focus();
+                return false;
+            }
             //ISBN
             if (TxtIsbn.Text.Trim() == "")
             {
