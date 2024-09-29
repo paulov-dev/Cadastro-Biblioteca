@@ -90,7 +90,21 @@ namespace Biblioteca
 
         private void MnSUsuario_Click(object sender, EventArgs e)
         {
-            MnuUsuario_Click(sender, e );
+            MnuUsuario_Click(sender, e);
+        }
+
+        private void MnuLivro_Click(object sender, EventArgs e)
+        {
+            FrmLivro oFrm = new FrmLivro();
+            oFrm.MdiParent = this;
+            MnuLivro.Enabled = false;
+            MnSLivro.Enabled = false;
+            oFrm.Show();
+        }
+
+        private void MnSLivro_Click(object sender, EventArgs e)
+        {
+            MnuLivro_Click(sender, e);
         }
     }
 }

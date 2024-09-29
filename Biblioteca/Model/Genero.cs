@@ -70,5 +70,14 @@ namespace Biblioteca.Model
             }
         }
 
+        internal static void PreencherComboBoxGenero(ComboBox cmbGenero)
+        {
+            List<Genero> listaGenero = Genero.ListarTodos();
+
+            cmbGenero.DisplayMember = "Nome";
+            cmbGenero.ValueMember = "id";
+
+            cmbGenero.DataSource = listaGenero;
+        }
     }
 }

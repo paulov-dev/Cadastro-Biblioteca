@@ -69,5 +69,14 @@ namespace Biblioteca.Model
                 DataHelper.ListaIdioma.Remove(this);
             }
         }
+        public void PreencherComboBoxIdioma(ComboBox combobox)
+        {
+            List<Idioma> listaIdiomas = Idioma.ListarTodos();
+
+            combobox.DisplayMember = "Nome";
+            combobox.ValueMember = "id";
+
+            combobox.DataSource = listaIdiomas;
+        }
     }
 }
