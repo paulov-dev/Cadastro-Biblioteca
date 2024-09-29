@@ -130,6 +130,7 @@
             BtnFechar.TabIndex = 9;
             BtnFechar.Text = "&Fechar";
             BtnFechar.UseVisualStyleBackColor = true;
+            BtnFechar.Click += BtnFechar_Click;
             // 
             // BtnSalvar
             // 

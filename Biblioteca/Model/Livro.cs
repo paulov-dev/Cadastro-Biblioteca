@@ -73,6 +73,26 @@ namespace Biblioteca.Model
             }
         }
 
+        public static void Alterar(Livro oLivro)
+        {
+            using (var ocn = DataHelper.Conexao())
+            {
+                string sql = "UPDATE Livros SET nome=@nome, descricao=@descricao, isbn=@isbn, edicao=@edicao, qtdPaginas=@qtdPaginas, editora_id=@editora_id, idioma_id=@idioma_id, autor_id=@autor_id, genero_id=@genero_id WHERE id=@id";
+                SqlCommand oCmd = new SqlCommand(sql, ocn);
+                oCmd.Parameters.AddWithValue("@nome", oLivro.nomeLivro);
+                oCmd.Parameters.AddWithValue("@descricao", oLivro.descricaoLivro);
+                oCmd.Parameters.AddWithValue("@isbn", oLivro.isbn);
+                oCmd.Parameters.AddWithValue("@qtdPaginas", oLivro.qtdPagLivro);
+                oCmd.Parameters.AddWithValue("@edicao", oLivro.edicaoLivro);
+                oCmd.Parameters.AddWithValue("@autor_id", oLivro.Autor.idAutor);
+                oCmd.Parameters.AddWithValue("@editora_id", oLivro.Editora.idEditora);
+                oCmd.Parameters.AddWithValue("@idioma_id", oLivro.Idioma.idIdioma);
+                oCmd.Parameters.AddWithValue("@genero_id", oLivro.Genero.id);
+                oCmd.Parameters.AddWithValue("@id", oLivro.idLivro);
+                oCmd.ExecuteNonQuery();
+            }
+        }
+
         public void Excluir(int id)
         {
             using (var ocn = DataHelper.Conexao())

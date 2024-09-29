@@ -199,7 +199,35 @@ namespace Biblioteca.View
                 }
                 else
                 {
-                    // PROGRAMAR EDIÇÃO
+                    if (ValidaControles())
+                    {
+                        Livro oLivro = new Livro
+                        {
+                            idLivro = int.Parse(TxtCodigo.Text),
+                            isbn = int.Parse(TxtIsbn.Text),
+                            nomeLivro = TxtNome.Text,
+                            descricaoLivro = TxtDescricao.Text,
+                            edicaoLivro = int.Parse(TxtEdicao.Text),
+                            qtdPagLivro = int.Parse(TxtPag.Text),
+                            Autor = (Autor)CmbAutor.SelectedItem,
+                            Idioma = (Idioma)CmbIdioma.SelectedItem,
+                            Editora = (Editora)CmbEditora.SelectedItem,
+                            Genero = (Genero)CmbGenero.SelectedItem
+                        };
+
+                        try
+                        {
+                            Livro.Alterar(oLivro);
+                            LimpaControles();
+                            CarregaGrid();
+                            TxtCodigo.Enabled = true;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
                 }
             }
         }
@@ -222,7 +250,7 @@ namespace Biblioteca.View
                     CmbIdioma.SelectedIndex = -1;
                     CmbEditora.SelectedIndex = -1;
                     CmbGenero.SelectedIndex = -1;
-                    CmbAutor.SelectedIndex = -1;  
+                    CmbAutor.SelectedIndex = -1;
                     TxtNome.Focus();
                     Incluir = false;
                 }
@@ -236,6 +264,11 @@ namespace Biblioteca.View
                     }
                 }
             }
+        }
+
+        private void BtnFechar_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
