@@ -61,12 +61,26 @@ namespace Biblioteca.Model
         {
             using (var oCn = DataHelper.Conexao())
             {
+                string checkSQL = $"SELECT COUNT(*) FROM Livros WHERE editora_id = {this.idEditora}";
+                using (var checkCommand = new SqlCommand(checkSQL, oCn))
+                {
+                    int count = (int)checkCommand.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        throw new InvalidOperationException("Não é possível excluir a editora porque ela está associada a um ou mais livros.");
+                    }
+                }
                 string SQL = $"DELETE FROM Editora WHERE id = {this.idEditora}";
-                SqlCommand comando = new SqlCommand(SQL, oCn);
-                comando.ExecuteNonQuery();
-                DataHelper.ListaEditora.Remove(this);
+                using (var comando = new SqlCommand(SQL, oCn))
+                {
+                    comando.ExecuteNonQuery();
+                }
             }
         }
+
+
+
+
         internal static void PreencherComboBoxEditora(ComboBox cmbEditora)
         {
             List<Editora> listaEditora = Editora.ListarTodos();

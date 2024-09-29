@@ -81,12 +81,26 @@ namespace Biblioteca.Model
         {
             using (var oCn = DataHelper.Conexao())
             {
+                // Verifica se o autor está associado a algum livro
+                string checkSQL = $"SELECT COUNT(*) FROM Livros WHERE autor_id = {this.idAutor}";
+                using (var checkCommand = new SqlCommand(checkSQL, oCn))
+                {
+                    int count = (int)checkCommand.ExecuteScalar();
+                    if (count > 0)
+                    {                        
+                        throw new InvalidOperationException("Não é possível excluir o autor porque ele está associado a um ou mais livros.");
+                    }
+                }
+
                 string SQL = $"DELETE FROM Autor WHERE id = {this.idAutor}";
-                SqlCommand comando = new SqlCommand(SQL, oCn);
-                comando.ExecuteNonQuery();
-                DataHelper.ListaAutor.Remove(this);
+                using (var comando = new SqlCommand(SQL, oCn))
+                {
+                    comando.ExecuteNonQuery();
+                    DataHelper.ListaAutor.Remove(this);
+                }
             }
         }
+
         internal static void PreencherComboBoxAutor(ComboBox cmbAutor)
         {
             List<Autor> listaAutor = Autor.ListarTodos();

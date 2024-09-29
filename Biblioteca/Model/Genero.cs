@@ -59,16 +59,39 @@ namespace Biblioteca.Model
             }
         }
 
+        //public void Excluir()
+        //{
+        //    using (var oCn = DataHelper.Conexao())
+        //    {
+        //        string SQL = $"DELETE FROM Genero WHERE id = {this.id}";
+        //        SqlCommand comando = new SqlCommand(SQL, oCn);
+        //        comando.ExecuteNonQuery();
+        //        DataHelper.ListaGenero.Remove(this);
+        //    }
+        //}
+
         public void Excluir()
         {
             using (var oCn = DataHelper.Conexao())
             {
+                string checkSQL = $"SELECT COUNT(*) FROM Livros WHERE genero_id = {this.id}";
+                using (var checkCommand = new SqlCommand(checkSQL, oCn))
+                {
+                    int count = (int)checkCommand.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        throw new InvalidOperationException("Não é possível excluir o gênero porque ele está associado a um ou mais livros.");
+                    }
+                }
+
                 string SQL = $"DELETE FROM Genero WHERE id = {this.id}";
-                SqlCommand comando = new SqlCommand(SQL, oCn);
-                comando.ExecuteNonQuery();
-                DataHelper.ListaGenero.Remove(this);
+                using (var comando = new SqlCommand(SQL, oCn))
+                {
+                    comando.ExecuteNonQuery();
+                }
             }
         }
+
 
         internal static void PreencherComboBoxGenero(ComboBox cmbGenero)
         {

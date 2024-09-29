@@ -145,8 +145,15 @@ namespace Biblioteca
                     //Clicou no botao excluir
                     if (MessageBox.Show("Confirme a exclusão.", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                     {
-                        objSelecionado.Excluir();
-                        CarregaGrid();
+                        try
+                        {
+                            objSelecionado.Excluir();
+                            CarregaGrid();
+                        }
+                        catch (InvalidOperationException ex)
+                        {
+                            MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                 }
             }

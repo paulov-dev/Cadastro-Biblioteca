@@ -58,17 +58,27 @@ namespace Biblioteca.Model
                 comando.ExecuteNonQuery();
             }
         }
-
         public void Excluir()
         {
             using (var oCn = DataHelper.Conexao())
             {
+                string checkSQL = $"SELECT COUNT(*) FROM Livros WHERE idioma_id = {this.idIdioma}";
+                using (var checkCommand = new SqlCommand(checkSQL, oCn))
+                {
+                    int count = (int)checkCommand.ExecuteScalar();
+                    if (count > 0)
+                    {
+                        throw new InvalidOperationException("Não é possível excluir o idioma porque ele está associado a um ou mais livros.");
+                    }
+                }
                 string SQL = $"DELETE FROM Idioma WHERE id = {this.idIdioma}";
-                SqlCommand comando = new SqlCommand(SQL, oCn);
-                comando.ExecuteNonQuery();
-                DataHelper.ListaIdioma.Remove(this);
+                using (var comando = new SqlCommand(SQL, oCn))
+                {
+                    comando.ExecuteNonQuery();
+                }
             }
         }
+
         internal static void PreencherComboBoxIdioma(ComboBox cmbIdioma)
         {
             List<Idioma> listaIdioma = Idioma.ListarTodos();
