@@ -29,6 +29,14 @@
         private void InitializeComponent()
         {
             GrdItens = new DataGridView();
+            ID = new DataGridViewTextBoxColumn();
+            ISBN = new DataGridViewTextBoxColumn();
+            Nome = new DataGridViewTextBoxColumn();
+            Descrição = new DataGridViewTextBoxColumn();
+            Edição = new DataGridViewTextBoxColumn();
+            Páginas = new DataGridViewTextBoxColumn();
+            BtnAlterar = new DataGridViewButtonColumn();
+            BtnExcluir = new DataGridViewButtonColumn();
             BtnFechar = new Button();
             BtnSalvar = new Button();
             label1 = new Label();
@@ -60,11 +68,59 @@
             GrdItens.AllowUserToDeleteRows = false;
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            GrdItens.Columns.AddRange(new DataGridViewColumn[] { ID, ISBN, Nome, Descrição, Edição, Páginas, BtnAlterar, BtnExcluir });
             GrdItens.Location = new Point(0, 211);
             GrdItens.Name = "GrdItens";
             GrdItens.RowHeadersVisible = false;
             GrdItens.Size = new Size(1114, 413);
             GrdItens.TabIndex = 10;
+            GrdItens.CellClick += GrdItens_CellClick;
+            // 
+            // ID
+            // 
+            ID.DataPropertyName = "idLivro";
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            // 
+            // ISBN
+            // 
+            ISBN.DataPropertyName = "isbn";
+            ISBN.HeaderText = "ISBN";
+            ISBN.Name = "ISBN";
+            // 
+            // Nome
+            // 
+            Nome.DataPropertyName = "nomeLivro";
+            Nome.HeaderText = "Nome";
+            Nome.Name = "Nome";
+            // 
+            // Descrição
+            // 
+            Descrição.DataPropertyName = "descricaoLivro";
+            Descrição.HeaderText = "Descrição";
+            Descrição.Name = "Descrição";
+            // 
+            // Edição
+            // 
+            Edição.DataPropertyName = "edicaoLivro";
+            Edição.HeaderText = "Edição";
+            Edição.Name = "Edição";
+            // 
+            // Páginas
+            // 
+            Páginas.DataPropertyName = "qtdPagLivro";
+            Páginas.HeaderText = "Páginas";
+            Páginas.Name = "Páginas";
+            // 
+            // BtnAlterar
+            // 
+            BtnAlterar.HeaderText = "Alterar";
+            BtnAlterar.Name = "BtnAlterar";
+            // 
+            // BtnExcluir
+            // 
+            BtnExcluir.HeaderText = "Excluir";
+            BtnExcluir.Name = "BtnExcluir";
             // 
             // BtnFechar
             // 
@@ -181,6 +237,7 @@
             // 
             // CmbIdioma
             // 
+            CmbIdioma.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbIdioma.FormattingEnabled = true;
             CmbIdioma.Location = new Point(504, 26);
             CmbIdioma.Name = "CmbIdioma";
@@ -189,6 +246,7 @@
             // 
             // CmbEditora
             // 
+            CmbEditora.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbEditora.FormattingEnabled = true;
             CmbEditora.Location = new Point(631, 26);
             CmbEditora.Name = "CmbEditora";
@@ -206,6 +264,7 @@
             // 
             // CmbGenero
             // 
+            CmbGenero.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbGenero.FormattingEnabled = true;
             CmbGenero.Location = new Point(758, 26);
             CmbGenero.Name = "CmbGenero";
@@ -240,6 +299,7 @@
             // 
             // CmbAutor
             // 
+            CmbAutor.DropDownStyle = ComboBoxStyle.DropDownList;
             CmbAutor.FormattingEnabled = true;
             CmbAutor.Location = new Point(885, 26);
             CmbAutor.Name = "CmbAutor";
@@ -318,5 +378,13 @@
         private TextBox TxtEdicao;
         public ComboBox CmbAutor;
         private Label label9;
+        private DataGridViewTextBoxColumn ID;
+        private DataGridViewTextBoxColumn ISBN;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewTextBoxColumn Descrição;
+        private DataGridViewTextBoxColumn Edição;
+        private DataGridViewTextBoxColumn Páginas;
+        private DataGridViewButtonColumn BtnAlterar;
+        private DataGridViewButtonColumn BtnExcluir;
     }
 }

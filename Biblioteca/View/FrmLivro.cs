@@ -38,6 +38,7 @@ namespace Biblioteca.View
             Editora.PreencherComboBoxEditora(CmbEditora);
             Autor.PreencherComboBoxAutor(CmbAutor);
             Idioma.PreencherComboBoxIdioma(CmbIdioma);
+            CarregaGrid();
         }
 
         private bool ValidaControles()
@@ -56,7 +57,7 @@ namespace Biblioteca.View
                 MessageBox.Show("O campo Código não é numérico.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtCodigo.Focus();
                 return false;
-            } 
+            }
             //Nome do Livro
             if (TxtNome.Text.Trim() == "")
             {
@@ -133,7 +134,7 @@ namespace Biblioteca.View
                 CmbIdioma.Focus();
                 return false;
             }
-            
+
             if (CmbEditora.SelectedIndex == -1)
             {
                 MessageBox.Show("Editora do livro é obrigatória", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -144,7 +145,25 @@ namespace Biblioteca.View
             return true;
         }
 
-
+        private void CarregaGrid()
+        {
+            GrdItens.AutoGenerateColumns = false;
+            GrdItens.DataSource = Livro.ListaTodos();
+        }
+        private void LimpaControles()
+        {
+            TxtCodigo.Text = "";
+            TxtNome.Text = "";
+            TxtDescricao.Text = "";
+            TxtIsbn.Text = "";
+            TxtPag.Text = "";
+            TxtEdicao.Text = "";
+            CmbAutor.SelectedIndex = -1;
+            CmbEditora.SelectedIndex = -1;
+            CmbGenero.SelectedIndex = -1;
+            CmbIdioma.SelectedIndex = -1;
+            Incluir = true;
+        }
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
@@ -170,17 +189,52 @@ namespace Biblioteca.View
                     try
                     {
                         oLivro.Incluir();
-                        //LimpaControles(); PROGRAMAR
-                        //CarregaGrid(); PROGRAMAR
+                        LimpaControles();
+                        CarregaGrid();
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show(ex.Message, ProductName, MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                } else
+                }
+                else
                 {
                     // PROGRAMAR EDIÇÃO
-                } 
+                }
+            }
+        }
+
+        private void GrdItens_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (GrdItens.Rows[e.RowIndex].DataBoundItem != null)
+            {
+                Livro objSelecionado = (Livro)GrdItens.Rows[e.RowIndex].DataBoundItem;
+                if (GrdItens.Columns[e.ColumnIndex].Name == "BtnAlterar")
+                {
+                    //Clicou no botao alterar
+                    TxtCodigo.Text = objSelecionado.idLivro.ToString();
+                    TxtNome.Text = objSelecionado.nomeLivro;
+                    TxtCodigo.Enabled = false;
+                    TxtDescricao.Text = objSelecionado.descricaoLivro.ToString();
+                    TxtIsbn.Text = objSelecionado.isbn.ToString();
+                    TxtPag.Text = objSelecionado.qtdPagLivro.ToString();
+                    TxtEdicao.Text = objSelecionado.edicaoLivro.ToString();
+                    CmbIdioma.SelectedIndex = -1;
+                    CmbEditora.SelectedIndex = -1;
+                    CmbGenero.SelectedIndex = -1;
+                    CmbAutor.SelectedIndex = -1;  
+                    TxtNome.Focus();
+                    Incluir = false;
+                }
+                else if (GrdItens.Columns[e.ColumnIndex].Name == "BtnExcluir")
+                {
+                    //Clicou no botao excluir
+                    if (MessageBox.Show("Confirme a exclusão.", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    {
+                        objSelecionado.Excluir(objSelecionado.idLivro);
+                        CarregaGrid();
+                    }
+                }
             }
         }
     }

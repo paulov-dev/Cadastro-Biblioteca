@@ -41,10 +41,10 @@ namespace Biblioteca.Model
                         descricaoLivro = oDr.GetString(oDr.GetOrdinal("descricao")),
                         edicaoLivro = oDr.GetInt32(oDr.GetOrdinal("edicao")),
                         qtdPagLivro = oDr.GetInt32(oDr.GetOrdinal("qtdPaginas")),
-                        Autor = Autor.Seleciona(oDr.GetInt32(oDr.GetOrdinal("idAutor"))),
-                        Idioma = Idioma.Seleciona(oDr.GetInt32(oDr.GetOrdinal("idIdioma"))),
-                        Editora = Editora.Seleciona(oDr.GetInt32(oDr.GetOrdinal("idEditora"))),
-                        Genero = Genero.Seleciona(oDr.GetInt32(oDr.GetOrdinal("idGenero")))
+                        Autor = Autor.Seleciona(oDr.GetInt32(oDr.GetOrdinal("id"))),
+                        Idioma = Idioma.Seleciona(oDr.GetInt32(oDr.GetOrdinal("id"))),
+                        Editora = Editora.Seleciona(oDr.GetInt32(oDr.GetOrdinal("id"))),
+                        Genero = Genero.Seleciona(oDr.GetInt32(oDr.GetOrdinal("id")))
                     });
                 }
                 oDr.Close();
@@ -73,5 +73,14 @@ namespace Biblioteca.Model
             }
         }
 
+        public void Excluir(int id)
+        {
+            using (var ocn = DataHelper.Conexao())
+            {
+                string sql = $"DELETE FROM Livros WHERE id={id}";
+                SqlCommand oCmd = new SqlCommand(sql, ocn);
+                oCmd.ExecuteNonQuery();
+            }
+        }
     }
 }
