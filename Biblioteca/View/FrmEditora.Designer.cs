@@ -51,6 +51,7 @@
             GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, BtnAlterar, BtnExcluir });
             GrdItens.Location = new Point(-2, 114);
             GrdItens.Name = "GrdItens";
+            GrdItens.RowHeadersVisible = false;
             GrdItens.Size = new Size(538, 441);
             GrdItens.TabIndex = 14;
             GrdItens.CellClick += GrdItens_CellClick_1;

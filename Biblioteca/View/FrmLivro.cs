@@ -42,6 +42,44 @@ namespace Biblioteca.View
             Genero.PreencherComboBoxGenero(CmbGenero);
         }
 
+        private bool ValidaControles()
+        {
+            int Codigo;
 
+            if (int.TryParse(TxtCodigo.Text, out Codigo) == false)
+            {
+                MessageBox.Show("O campo código não é numérico.", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtCodigo.Focus();
+                return false;
+            }        
+
+            if (CmbIdioma.SelectedIndex == -1)
+            {
+                MessageBox.Show("Idioma do livro é obrigatório", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                CmbIdioma.Focus();
+                return false;
+            }         
+
+
+            return true;
+        }
+
+        private void BtnSalvar_Click(object sender, EventArgs e)
+        {
+            // Corrigir
+            if (ValidaControles())
+            {
+
+                Livro oLivro = new Livro(
+                int.Parse(TxtCodigo.Text),
+                int.Parse(TxtIsbn.Text),
+                TxtNome.Text,
+                TxtDescricao.Text,
+                int.Parse(TxtEdicao.Text),
+                int.Parse(TxtPag.Text)
+                );
+
+            }
+        }
     }
 }

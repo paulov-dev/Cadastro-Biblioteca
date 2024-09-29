@@ -11,13 +11,13 @@ namespace Biblioteca.Model
     public class Livro
     {
         public int Id { get; set; }
-        public string ISBN { get; set; }
+        public int ISBN { get; set; }
         public string Nome { get; set; }
         public string Descricao { get; set; }
         public int Edicao { get; set; }
         public int QtdPaginas { get; set; }
 
-        public Livro(int id, string isbn, string nome, string descricao, int edicao, int qtdPaginas)
+        public Livro(int id, int isbn, string nome, string descricao, int edicao, int qtdPaginas)
         {
             Id = id;
             ISBN = isbn;
@@ -32,7 +32,7 @@ namespace Biblioteca.Model
             List<Idioma> listaidiomas = Idioma.ListarTodos();
 
             combobox.DisplayMember = "Nome";
-            combobox.ValueMember = "id";
+            combobox.ValueMember = "Id";
 
             combobox.DataSource = listaidiomas;
         }

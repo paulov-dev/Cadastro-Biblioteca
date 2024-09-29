@@ -56,6 +56,10 @@
             label6 = new Label();
             CmbGenero = new ComboBox();
             label7 = new Label();
+            label8 = new Label();
+            TxtEdicao = new TextBox();
+            comboBox1 = new ComboBox();
+            label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
@@ -68,6 +72,7 @@
             GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, Descrição, ISBN, Paginas, Idioma, Editora, BtnAlterar, BtnExcluir });
             GrdItens.Location = new Point(3, 212);
             GrdItens.Name = "GrdItens";
+            GrdItens.RowHeadersVisible = false;
             GrdItens.Size = new Size(1045, 413);
             GrdItens.TabIndex = 10;
             // 
@@ -137,6 +142,7 @@
             BtnSalvar.TabIndex = 8;
             BtnSalvar.Text = "&Salvar";
             BtnSalvar.UseVisualStyleBackColor = true;
+            BtnSalvar.Click += BtnSalvar_Click;
             // 
             // label1
             // 
@@ -226,7 +232,7 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(433, 9);
+            label5.Location = new Point(504, 9);
             label5.Name = "label5";
             label5.Size = new Size(44, 15);
             label5.TabIndex = 23;
@@ -235,7 +241,7 @@
             // CmbIdioma
             // 
             CmbIdioma.FormattingEnabled = true;
-            CmbIdioma.Location = new Point(433, 26);
+            CmbIdioma.Location = new Point(504, 26);
             CmbIdioma.Name = "CmbIdioma";
             CmbIdioma.Size = new Size(121, 23);
             CmbIdioma.TabIndex = 24;
@@ -243,7 +249,7 @@
             // CmbEditora
             // 
             CmbEditora.FormattingEnabled = true;
-            CmbEditora.Location = new Point(560, 26);
+            CmbEditora.Location = new Point(631, 26);
             CmbEditora.Name = "CmbEditora";
             CmbEditora.Size = new Size(121, 23);
             CmbEditora.TabIndex = 26;
@@ -251,7 +257,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(560, 9);
+            label6.Location = new Point(631, 9);
             label6.Name = "label6";
             label6.Size = new Size(44, 15);
             label6.TabIndex = 25;
@@ -260,7 +266,7 @@
             // CmbGenero
             // 
             CmbGenero.FormattingEnabled = true;
-            CmbGenero.Location = new Point(687, 26);
+            CmbGenero.Location = new Point(758, 26);
             CmbGenero.Name = "CmbGenero";
             CmbGenero.Size = new Size(121, 23);
             CmbGenero.TabIndex = 28;
@@ -268,17 +274,55 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(687, 9);
+            label7.Location = new Point(758, 9);
             label7.Name = "label7";
             label7.Size = new Size(45, 15);
             label7.TabIndex = 27;
             label7.Text = "Gênero";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(433, 9);
+            label8.Name = "label8";
+            label8.Size = new Size(42, 15);
+            label8.TabIndex = 29;
+            label8.Text = "Edição";
+            // 
+            // TxtEdicao
+            // 
+            TxtEdicao.Location = new Point(433, 26);
+            TxtEdicao.MaxLength = 4;
+            TxtEdicao.Name = "TxtEdicao";
+            TxtEdicao.Size = new Size(65, 23);
+            TxtEdicao.TabIndex = 30;
+            // 
+            // comboBox1
+            // 
+            comboBox1.FormattingEnabled = true;
+            comboBox1.Location = new Point(885, 26);
+            comboBox1.Name = "comboBox1";
+            comboBox1.Size = new Size(121, 23);
+            comboBox1.TabIndex = 32;
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(885, 9);
+            label9.Name = "label9";
+            label9.Size = new Size(45, 15);
+            label9.TabIndex = 31;
+            label9.Text = "Gênero";
             // 
             // FrmLivro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1050, 627);
+            Controls.Add(comboBox1);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(TxtEdicao);
             Controls.Add(CmbGenero);
             Controls.Add(label7);
             Controls.Add(CmbEditora);
@@ -338,5 +382,9 @@
         public ComboBox CmbEditora;
         public ComboBox CmbGenero;
         private Label label7;
+        private Label label8;
+        private TextBox TxtEdicao;
+        public ComboBox comboBox1;
+        private Label label9;
     }
 }
