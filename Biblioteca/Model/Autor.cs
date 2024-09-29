@@ -69,5 +69,14 @@ namespace Biblioteca.Model
                 DataHelper.ListaAutor.Remove(this);
             }
         }
+        internal static void PreencherComboBoxAutor(ComboBox cmbAutor)
+        {
+            List<Autor> listaAutor = Autor.ListarTodos();
+
+            cmbAutor.DisplayMember = "nomeAutor";
+            cmbAutor.ValueMember = "idAutor";
+
+            cmbAutor.DataSource = listaAutor;
+        }
     }
 }

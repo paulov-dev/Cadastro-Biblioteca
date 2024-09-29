@@ -67,5 +67,14 @@ namespace Biblioteca.Model
                 DataHelper.ListaEditora.Remove(this);
             }
         }
+        internal static void PreencherComboBoxEditora(ComboBox cmbEditora)
+        {
+            List<Editora> listaEditora = Editora.ListarTodos();
+
+            cmbEditora.DisplayMember = "NomeEditora";
+            cmbEditora.ValueMember = "idEditora";
+
+            cmbEditora.DataSource = listaEditora;
+        }
     }
 }

@@ -61,6 +61,14 @@ namespace Biblioteca.Model
                 DataHelper.ListaUsuario.Remove(this);
             }
         }
+        internal static void PreencherComboBoxUsuario(ComboBox cmbUsuario)
+        {
+            List<Usuario> listaUsuario = Usuario.ListarTodos();
 
+            cmbUsuario.DisplayMember = "NomeUsuario";
+            cmbUsuario.ValueMember = "idUsuario";
+
+            cmbUsuario.DataSource = listaUsuario;
+        }
     }
 }

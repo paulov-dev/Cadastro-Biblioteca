@@ -22,7 +22,7 @@ namespace Biblioteca.Helper
         public static SqlConnection Conexao()
         {
             // Data Source = (localdb)\MSSQLLocalDB; Initial Catalog = master; Integrated Security = True; Connect Timeout = 30; Encrypt = False; Trust Server Certificate = False; Application Intent = ReadWrite; Multi Subnet Failover = False
-            string strconnection = "Data Source=DESKTOP-I6NLS56\\SQLEXPRESS;Initial Catalog=BIBLIOTECA;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
+            string strconnection = "Data Source=DESKTOP-7QNTIG8\\SQLEXPRESS;Initial Catalog=BibliotecaCSharp;Integrated Security=True;Connect Timeout=30;Encrypt=True;Trust Server Certificate=True;Application Intent=ReadWrite;Multi Subnet Failover=False";
             SqlConnection oCn = new SqlConnection(strconnection);
             oCn.Open();
             return oCn;

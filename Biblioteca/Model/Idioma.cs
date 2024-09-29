@@ -69,14 +69,14 @@ namespace Biblioteca.Model
                 DataHelper.ListaIdioma.Remove(this);
             }
         }
-        public void PreencherComboBoxIdioma(ComboBox combobox)
+        internal static void PreencherComboBoxIdioma(ComboBox cmbIdioma)
         {
-            List<Idioma> listaIdiomas = Idioma.ListarTodos();
+            List<Idioma> listaIdioma = Idioma.ListarTodos();
 
-            combobox.DisplayMember = "Nome";
-            combobox.ValueMember = "id";
+            cmbIdioma.DisplayMember = "nomeIdioma";
+            cmbIdioma.ValueMember = "idIdioma";
 
-            combobox.DataSource = listaIdiomas;
+            cmbIdioma.DataSource = listaIdioma;
         }
     }
 }

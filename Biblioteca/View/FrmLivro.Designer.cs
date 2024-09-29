@@ -31,11 +31,9 @@
             GrdItens = new DataGridView();
             Codigo = new DataGridViewTextBoxColumn();
             Nome = new DataGridViewTextBoxColumn();
-            Descrição = new DataGridViewTextBoxColumn();
             ISBN = new DataGridViewTextBoxColumn();
             Paginas = new DataGridViewTextBoxColumn();
-            Idioma = new DataGridViewTextBoxColumn();
-            Editora = new DataGridViewTextBoxColumn();
+            Descrição = new DataGridViewTextBoxColumn();
             BtnAlterar = new DataGridViewButtonColumn();
             BtnExcluir = new DataGridViewButtonColumn();
             BtnFechar = new Button();
@@ -58,7 +56,7 @@
             label7 = new Label();
             label8 = new Label();
             TxtEdicao = new TextBox();
-            comboBox1 = new ComboBox();
+            CmbAutor = new ComboBox();
             label9 = new Label();
             ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
@@ -69,11 +67,11 @@
             GrdItens.AllowUserToDeleteRows = false;
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, Descrição, ISBN, Paginas, Idioma, Editora, BtnAlterar, BtnExcluir });
-            GrdItens.Location = new Point(3, 212);
+            GrdItens.Columns.AddRange(new DataGridViewColumn[] { Codigo, Nome, ISBN, Paginas, Descrição, BtnAlterar, BtnExcluir });
+            GrdItens.Location = new Point(-11, 211);
             GrdItens.Name = "GrdItens";
             GrdItens.RowHeadersVisible = false;
-            GrdItens.Size = new Size(1045, 413);
+            GrdItens.Size = new Size(1049, 413);
             GrdItens.TabIndex = 10;
             // 
             // Codigo
@@ -81,19 +79,14 @@
             Codigo.DataPropertyName = "id";
             Codigo.HeaderText = "Código";
             Codigo.Name = "Codigo";
+            Codigo.Width = 50;
             // 
             // Nome
             // 
             Nome.DataPropertyName = "Nome";
             Nome.HeaderText = "Nome";
             Nome.Name = "Nome";
-            Nome.Width = 200;
-            // 
-            // Descrição
-            // 
-            Descrição.DataPropertyName = "Descricao";
-            Descrição.HeaderText = "Descrição";
-            Descrição.Name = "Descrição";
+            Nome.Width = 150;
             // 
             // ISBN
             // 
@@ -105,25 +98,23 @@
             Paginas.HeaderText = "Páginas";
             Paginas.Name = "Paginas";
             // 
-            // Idioma
+            // Descrição
             // 
-            Idioma.HeaderText = "Idioma";
-            Idioma.Name = "Idioma";
-            // 
-            // Editora
-            // 
-            Editora.HeaderText = "Editora";
-            Editora.Name = "Editora";
+            Descrição.DataPropertyName = "Descricao";
+            Descrição.HeaderText = "Descrição";
+            Descrição.Name = "Descrição";
             // 
             // BtnAlterar
             // 
             BtnAlterar.HeaderText = "Alterar";
             BtnAlterar.Name = "BtnAlterar";
+            BtnAlterar.Width = 50;
             // 
             // BtnExcluir
             // 
             BtnExcluir.HeaderText = "Excluir";
             BtnExcluir.Name = "BtnExcluir";
+            BtnExcluir.Width = 50;
             // 
             // BtnFechar
             // 
@@ -297,29 +288,29 @@
             TxtEdicao.Size = new Size(65, 23);
             TxtEdicao.TabIndex = 30;
             // 
-            // comboBox1
+            // CmbAutor
             // 
-            comboBox1.FormattingEnabled = true;
-            comboBox1.Location = new Point(885, 26);
-            comboBox1.Name = "comboBox1";
-            comboBox1.Size = new Size(121, 23);
-            comboBox1.TabIndex = 32;
+            CmbAutor.FormattingEnabled = true;
+            CmbAutor.Location = new Point(885, 26);
+            CmbAutor.Name = "CmbAutor";
+            CmbAutor.Size = new Size(121, 23);
+            CmbAutor.TabIndex = 32;
             // 
             // label9
             // 
             label9.AutoSize = true;
             label9.Location = new Point(885, 9);
             label9.Name = "label9";
-            label9.Size = new Size(45, 15);
+            label9.Size = new Size(37, 15);
             label9.TabIndex = 31;
-            label9.Text = "Gênero";
+            label9.Text = "Autor";
             // 
             // FrmLivro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1050, 627);
-            Controls.Add(comboBox1);
+            Controls.Add(CmbAutor);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(TxtEdicao);
@@ -369,22 +360,20 @@
         private TextBox TxtPag;
         private Label label5;
         private Label label6;
-        private DataGridViewTextBoxColumn Codigo;
-        private DataGridViewTextBoxColumn Nome;
-        private DataGridViewTextBoxColumn Descrição;
-        private DataGridViewTextBoxColumn ISBN;
-        private DataGridViewTextBoxColumn Paginas;
-        private DataGridViewTextBoxColumn Idioma;
-        private DataGridViewTextBoxColumn Editora;
-        private DataGridViewButtonColumn BtnAlterar;
-        private DataGridViewButtonColumn BtnExcluir;
         public ComboBox CmbIdioma;
         public ComboBox CmbEditora;
         public ComboBox CmbGenero;
         private Label label7;
         private Label label8;
         private TextBox TxtEdicao;
-        public ComboBox comboBox1;
+        public ComboBox CmbAutor;
         private Label label9;
+        private DataGridViewTextBoxColumn Codigo;
+        private DataGridViewTextBoxColumn Nome;
+        private DataGridViewTextBoxColumn ISBN;
+        private DataGridViewTextBoxColumn Paginas;
+        private DataGridViewTextBoxColumn Descrição;
+        private DataGridViewButtonColumn BtnAlterar;
+        private DataGridViewButtonColumn BtnExcluir;
     }
 }
