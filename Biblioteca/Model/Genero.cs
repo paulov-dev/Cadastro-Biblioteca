@@ -35,10 +35,6 @@ namespace Biblioteca.Model
             }
         }
 
-        //public static Genero? Seleciona(int Codigo)
-        //{
-        //    return (from p in DataHelper.ListaGenero where p.id == Codigo select p).FirstOrDefault();
-        //}
         public static Genero? Seleciona(int id)
         {
             using (var ocn = DataHelper.Conexao())

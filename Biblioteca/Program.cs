@@ -1,5 +1,5 @@
-using Biblioteca.Controller;
-using Biblioteca.Mock;
+//using Biblioteca.Controller;
+//using Biblioteca.Mock;
 using Biblioteca.Model;
 
 namespace Biblioteca
@@ -16,15 +16,15 @@ namespace Biblioteca
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            MockGenero.CarregaGenero();
+            //MockGenero.CarregaGenero();
 
-            MockAutor.CarregaAutor();
+            //MockAutor.CarregaAutor();
 
-            MockEditora.CarregaEditora();
+            //MockEditora.CarregaEditora();
 
-            MockIdioma.CarregaIdioma();
+            //MockIdioma.CarregaIdioma();
 
-            MockUsuario.CarregaUsuario();
+            //MockUsuario.CarregaUsuario();
 
             Application.Run(new FrmMenu());
         }

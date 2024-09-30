@@ -34,11 +34,6 @@ namespace Biblioteca.Model
                 return Retorno;
             }
         }
-
-        //public static Idioma? Seleciona(int Codigo)
-        //{
-        //    return (from p in DataHelper.ListaIdioma where p.idIdioma == Codigo select p).FirstOrDefault();
-        //}
         public static Idioma? Seleciona(int id)
         {
             using (var ocn = DataHelper.Conexao())

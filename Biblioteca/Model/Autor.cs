@@ -97,7 +97,6 @@ namespace Biblioteca.Model
                 using (var comando = new SqlCommand(SQL, oCn))
                 {
                     comando.ExecuteNonQuery();
-                    DataHelper.ListaAutor.Remove(this);
                 }
             }
         }

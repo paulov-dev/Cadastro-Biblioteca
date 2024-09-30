@@ -58,7 +58,6 @@ namespace Biblioteca.Model
                 string SQL = $"DELETE FROM Usuario WHERE id = {this.idUsuario}";
                 SqlCommand comando = new SqlCommand(SQL, oCn);
                 comando.ExecuteNonQuery();
-                DataHelper.ListaUsuario.Remove(this);
             }
         }
         internal static void PreencherComboBoxUsuario(ComboBox cmbUsuario)

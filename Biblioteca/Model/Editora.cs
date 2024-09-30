@@ -34,10 +34,6 @@ namespace Biblioteca.Model
                 return Retorno;
             }      
         }
-        //public static Editora? Seleciona(int Codigo)
-        //{
-        //    return (from p in DataHelper.ListaEditora where p.idEditora == Codigo select p).FirstOrDefault();
-        //}
         public static Editora? Seleciona(int id)
         {
             using (var ocn = DataHelper.Conexao())
