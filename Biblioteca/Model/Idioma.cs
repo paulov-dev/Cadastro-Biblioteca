@@ -12,6 +12,7 @@ namespace Biblioteca.Model
     {
         public int idIdioma { get; set; }
         public string? nomeIdioma { get; set; }
+        public override string ToString() => $"{nomeIdioma}";
 
         public static List<Idioma> ListarTodos()
         {
@@ -34,9 +35,31 @@ namespace Biblioteca.Model
             }
         }
 
-        public static Idioma? Seleciona(int Codigo)
+        //public static Idioma? Seleciona(int Codigo)
+        //{
+        //    return (from p in DataHelper.ListaIdioma where p.idIdioma == Codigo select p).FirstOrDefault();
+        //}
+        public static Idioma? Seleciona(int id)
         {
-            return (from p in DataHelper.ListaIdioma where p.idIdioma == Codigo select p).FirstOrDefault();
+            using (var ocn = DataHelper.Conexao())
+            {
+                string sql = $"SELECT * FROM Idioma WHERE id={id}";
+                SqlCommand oCmd = new SqlCommand(sql, ocn);
+                SqlDataReader oDr = oCmd.ExecuteReader();
+
+                Idioma? Retorno = null;
+                while (oDr.Read())
+                {
+                    Retorno = new Idioma
+                    {
+                        idIdioma = oDr.GetInt32(oDr.GetOrdinal("id")),
+                        nomeIdioma = oDr.GetString(oDr.GetOrdinal("nome"))
+                    };
+                }
+                oDr.Close();
+
+                return Retorno;
+            }
         }
 
         public void Incluir()

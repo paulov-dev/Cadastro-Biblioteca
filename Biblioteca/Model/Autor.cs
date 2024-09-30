@@ -12,6 +12,7 @@ namespace Biblioteca.Model
     {
         public int idAutor { get; set; }
         public string? nomeAutor { get; set; }
+        public override string ToString() => $"{nomeAutor}";
 
         public static List<Autor> ListarTodos()
         {

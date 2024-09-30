@@ -29,14 +29,6 @@
         private void InitializeComponent()
         {
             GrdItens = new DataGridView();
-            ID = new DataGridViewTextBoxColumn();
-            ISBN = new DataGridViewTextBoxColumn();
-            Nome = new DataGridViewTextBoxColumn();
-            Descrição = new DataGridViewTextBoxColumn();
-            Edição = new DataGridViewTextBoxColumn();
-            Páginas = new DataGridViewTextBoxColumn();
-            BtnAlterar = new DataGridViewButtonColumn();
-            BtnExcluir = new DataGridViewButtonColumn();
             BtnFechar = new Button();
             BtnSalvar = new Button();
             label1 = new Label();
@@ -59,6 +51,18 @@
             TxtEdicao = new TextBox();
             CmbAutor = new ComboBox();
             label9 = new Label();
+            ID = new DataGridViewTextBoxColumn();
+            Nome = new DataGridViewTextBoxColumn();
+            ISBN = new DataGridViewTextBoxColumn();
+            Páginas = new DataGridViewTextBoxColumn();
+            Edição = new DataGridViewTextBoxColumn();
+            NomeIdioma = new DataGridViewTextBoxColumn();
+            NomeEditora = new DataGridViewTextBoxColumn();
+            NomeGenero = new DataGridViewTextBoxColumn();
+            NomeAutor = new DataGridViewTextBoxColumn();
+            Descrição = new DataGridViewTextBoxColumn();
+            BtnAlterar = new DataGridViewButtonColumn();
+            BtnExcluir = new DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)GrdItens).BeginInit();
             SuspendLayout();
             // 
@@ -68,59 +72,13 @@
             GrdItens.AllowUserToDeleteRows = false;
             GrdItens.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             GrdItens.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            GrdItens.Columns.AddRange(new DataGridViewColumn[] { ID, ISBN, Nome, Descrição, Edição, Páginas, BtnAlterar, BtnExcluir });
-            GrdItens.Location = new Point(0, 211);
+            GrdItens.Columns.AddRange(new DataGridViewColumn[] { ID, Nome, ISBN, Páginas, Edição, NomeIdioma, NomeEditora, NomeGenero, NomeAutor, Descrição, BtnAlterar, BtnExcluir });
+            GrdItens.Location = new Point(-1, 202);
             GrdItens.Name = "GrdItens";
             GrdItens.RowHeadersVisible = false;
-            GrdItens.Size = new Size(1114, 413);
+            GrdItens.Size = new Size(1104, 413);
             GrdItens.TabIndex = 10;
             GrdItens.CellClick += GrdItens_CellClick;
-            // 
-            // ID
-            // 
-            ID.DataPropertyName = "idLivro";
-            ID.HeaderText = "ID";
-            ID.Name = "ID";
-            // 
-            // ISBN
-            // 
-            ISBN.DataPropertyName = "isbn";
-            ISBN.HeaderText = "ISBN";
-            ISBN.Name = "ISBN";
-            // 
-            // Nome
-            // 
-            Nome.DataPropertyName = "nomeLivro";
-            Nome.HeaderText = "Nome";
-            Nome.Name = "Nome";
-            // 
-            // Descrição
-            // 
-            Descrição.DataPropertyName = "descricaoLivro";
-            Descrição.HeaderText = "Descrição";
-            Descrição.Name = "Descrição";
-            // 
-            // Edição
-            // 
-            Edição.DataPropertyName = "edicaoLivro";
-            Edição.HeaderText = "Edição";
-            Edição.Name = "Edição";
-            // 
-            // Páginas
-            // 
-            Páginas.DataPropertyName = "qtdPagLivro";
-            Páginas.HeaderText = "Páginas";
-            Páginas.Name = "Páginas";
-            // 
-            // BtnAlterar
-            // 
-            BtnAlterar.HeaderText = "Alterar";
-            BtnAlterar.Name = "BtnAlterar";
-            // 
-            // BtnExcluir
-            // 
-            BtnExcluir.HeaderText = "Excluir";
-            BtnExcluir.Name = "BtnExcluir";
             // 
             // BtnFechar
             // 
@@ -316,6 +274,81 @@
             label9.TabIndex = 31;
             label9.Text = "Autor";
             // 
+            // ID
+            // 
+            ID.DataPropertyName = "idLivro";
+            ID.HeaderText = "ID";
+            ID.Name = "ID";
+            ID.Width = 35;
+            // 
+            // Nome
+            // 
+            Nome.DataPropertyName = "nomeLivro";
+            Nome.HeaderText = "Nome";
+            Nome.Name = "Nome";
+            // 
+            // ISBN
+            // 
+            ISBN.DataPropertyName = "isbn";
+            ISBN.HeaderText = "ISBN";
+            ISBN.Name = "ISBN";
+            // 
+            // Páginas
+            // 
+            Páginas.DataPropertyName = "qtdPagLivro";
+            Páginas.HeaderText = "Páginas";
+            Páginas.Name = "Páginas";
+            // 
+            // Edição
+            // 
+            Edição.DataPropertyName = "edicaoLivro";
+            Edição.HeaderText = "Edição";
+            Edição.Name = "Edição";
+            Edição.Width = 50;
+            // 
+            // NomeIdioma
+            // 
+            NomeIdioma.DataPropertyName = "Idioma";
+            NomeIdioma.HeaderText = "Idioma";
+            NomeIdioma.Name = "NomeIdioma";
+            // 
+            // NomeEditora
+            // 
+            NomeEditora.DataPropertyName = "Editora";
+            NomeEditora.HeaderText = "Editora";
+            NomeEditora.Name = "NomeEditora";
+            // 
+            // NomeGenero
+            // 
+            NomeGenero.DataPropertyName = "Genero";
+            NomeGenero.HeaderText = "Gênero";
+            NomeGenero.Name = "NomeGenero";
+            // 
+            // NomeAutor
+            // 
+            NomeAutor.DataPropertyName = "Autor";
+            NomeAutor.HeaderText = "Autor";
+            NomeAutor.Name = "NomeAutor";
+            // 
+            // Descrição
+            // 
+            Descrição.DataPropertyName = "descricaoLivro";
+            Descrição.HeaderText = "Descrição";
+            Descrição.Name = "Descrição";
+            Descrição.Width = 200;
+            // 
+            // BtnAlterar
+            // 
+            BtnAlterar.HeaderText = "Alterar";
+            BtnAlterar.Name = "BtnAlterar";
+            BtnAlterar.Width = 50;
+            // 
+            // BtnExcluir
+            // 
+            BtnExcluir.HeaderText = "Excluir";
+            BtnExcluir.Name = "BtnExcluir";
+            BtnExcluir.Width = 50;
+            // 
             // FrmLivro
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -380,11 +413,15 @@
         public ComboBox CmbAutor;
         private Label label9;
         private DataGridViewTextBoxColumn ID;
-        private DataGridViewTextBoxColumn ISBN;
         private DataGridViewTextBoxColumn Nome;
-        private DataGridViewTextBoxColumn Descrição;
-        private DataGridViewTextBoxColumn Edição;
+        private DataGridViewTextBoxColumn ISBN;
         private DataGridViewTextBoxColumn Páginas;
+        private DataGridViewTextBoxColumn Edição;
+        private DataGridViewTextBoxColumn NomeIdioma;
+        private DataGridViewTextBoxColumn NomeEditora;
+        private DataGridViewTextBoxColumn NomeGenero;
+        private DataGridViewTextBoxColumn NomeAutor;
+        private DataGridViewTextBoxColumn Descrição;
         private DataGridViewButtonColumn BtnAlterar;
         private DataGridViewButtonColumn BtnExcluir;
     }

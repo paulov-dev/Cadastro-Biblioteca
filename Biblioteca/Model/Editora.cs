@@ -12,7 +12,8 @@ namespace Biblioteca.Model
     {
         public int idEditora { get; set; }
         public string? NomeEditora { get; set; }
-        
+        public override string ToString() => $"{NomeEditora}";
+
         public static List<Editora>ListarTodos()
         {
             using (var oCn = DataHelper.Conexao())
@@ -33,9 +34,31 @@ namespace Biblioteca.Model
                 return Retorno;
             }      
         }
-        public static Editora? Seleciona(int Codigo)
+        //public static Editora? Seleciona(int Codigo)
+        //{
+        //    return (from p in DataHelper.ListaEditora where p.idEditora == Codigo select p).FirstOrDefault();
+        //}
+        public static Editora? Seleciona(int id)
         {
-            return (from p in DataHelper.ListaEditora where p.idEditora == Codigo select p).FirstOrDefault();
+            using (var ocn = DataHelper.Conexao())
+            {
+                string sql = $"SELECT * FROM Editora WHERE id={id}";
+                SqlCommand oCmd = new SqlCommand(sql, ocn);
+                SqlDataReader oDr = oCmd.ExecuteReader();
+
+                Editora? Retorno = null;
+                while (oDr.Read())
+                {
+                    Retorno = new Editora
+                    {
+                        idEditora = oDr.GetInt32(oDr.GetOrdinal("id")),
+                        NomeEditora = oDr.GetString(oDr.GetOrdinal("nome"))
+                    };
+                }
+                oDr.Close();
+
+                return Retorno;
+            }
         }
         public void Incluir()
         {

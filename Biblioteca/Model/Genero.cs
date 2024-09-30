@@ -12,6 +12,7 @@ namespace Biblioteca.Model
     {
         public int id { get; set; }
         public string? Nome { get; set; }
+        public override string ToString() => $"{Nome}";
 
         public static List<Genero> ListarTodos()
         {
@@ -34,9 +35,31 @@ namespace Biblioteca.Model
             }
         }
 
-        public static Genero? Seleciona(int Codigo)
+        //public static Genero? Seleciona(int Codigo)
+        //{
+        //    return (from p in DataHelper.ListaGenero where p.id == Codigo select p).FirstOrDefault();
+        //}
+        public static Genero? Seleciona(int id)
         {
-            return (from p in DataHelper.ListaGenero where p.id == Codigo select p).FirstOrDefault();
+            using (var ocn = DataHelper.Conexao())
+            {
+                string sql = $"SELECT * FROM Genero WHERE id={id}";
+                SqlCommand oCmd = new SqlCommand(sql, ocn);
+                SqlDataReader oDr = oCmd.ExecuteReader();
+
+                Genero? Retorno = null;
+                while (oDr.Read())
+                {
+                    Retorno = new Genero
+                    {
+                        id = oDr.GetInt32(oDr.GetOrdinal("id")),
+                        Nome = oDr.GetString(oDr.GetOrdinal("nome"))
+                    };
+                }
+                oDr.Close();
+
+                return Retorno;
+            }
         }
 
         public void Incluir()

@@ -41,10 +41,10 @@ namespace Biblioteca.Model
                         descricaoLivro = oDr.GetString(oDr.GetOrdinal("descricao")),
                         edicaoLivro = oDr.GetInt32(oDr.GetOrdinal("edicao")),
                         qtdPagLivro = oDr.GetInt32(oDr.GetOrdinal("qtdPaginas")),
-                        Autor = Autor.Seleciona(oDr.GetInt32(oDr.GetOrdinal("id"))),
-                        Idioma = Idioma.Seleciona(oDr.GetInt32(oDr.GetOrdinal("id"))),
-                        Editora = Editora.Seleciona(oDr.GetInt32(oDr.GetOrdinal("id"))),
-                        Genero = Genero.Seleciona(oDr.GetInt32(oDr.GetOrdinal("id")))
+                        Autor = Autor.Seleciona(oDr.GetInt32(oDr.GetOrdinal("autor_id"))),
+                        Idioma = Idioma.Seleciona(oDr.GetInt32(oDr.GetOrdinal("idioma_id"))),
+                        Editora = Editora.Seleciona(oDr.GetInt32(oDr.GetOrdinal("editora_id"))),
+                        Genero = Genero.Seleciona(oDr.GetInt32(oDr.GetOrdinal("genero_id")))
                     });
                 }
                 oDr.Close();
