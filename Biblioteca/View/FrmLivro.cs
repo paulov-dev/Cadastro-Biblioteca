@@ -247,10 +247,10 @@ namespace Biblioteca.View
                     TxtIsbn.Text = objSelecionado.isbn.ToString();
                     TxtPag.Text = objSelecionado.qtdPagLivro.ToString();
                     TxtEdicao.Text = objSelecionado.edicaoLivro.ToString();
-                    CmbIdioma.SelectedIndex = -1;
-                    CmbEditora.SelectedIndex = -1;
-                    CmbGenero.SelectedIndex = -1;
-                    CmbAutor.SelectedIndex = -1;
+                    CmbIdioma.SelectedValue = objSelecionado.Idioma.idIdioma;
+                    CmbEditora.SelectedValue = objSelecionado.Editora.idEditora;
+                    CmbGenero.SelectedValue = objSelecionado.Genero.id;
+                    CmbAutor.SelectedValue = objSelecionado.Autor.idAutor;
                     TxtNome.Focus();
                     Incluir = false;
                 }
