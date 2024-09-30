@@ -31,6 +31,7 @@ namespace Biblioteca
         private void FrmGenero_Activated(object sender, EventArgs e)
         {
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Gênero";
+            GrdItens.ReadOnly = true;
         }
 
         private void BtnFechar_Click(object sender, EventArgs e)

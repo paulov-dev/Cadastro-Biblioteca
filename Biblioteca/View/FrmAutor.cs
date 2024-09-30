@@ -23,6 +23,7 @@ namespace Biblioteca
         private void FrmAutor_Activated(object sender, EventArgs e)
         {
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Autor";
+            GrdItens.ReadOnly = true;
         }
 
         private void FrmAutor_FormClosed(object sender, FormClosedEventArgs e)

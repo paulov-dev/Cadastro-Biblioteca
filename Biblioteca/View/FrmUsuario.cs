@@ -23,6 +23,7 @@ namespace Biblioteca.View
         private void FrmUsuario_Activated(object sender, EventArgs e)
         {
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Usuário";
+            GrdItens.ReadOnly = true;
         }
 
         private void FrmUsuario_FormClosed(object sender, FormClosedEventArgs e)

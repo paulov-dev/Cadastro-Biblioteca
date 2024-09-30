@@ -23,6 +23,7 @@ namespace Biblioteca
         private void FrmEditora_Activated(object sender, EventArgs e)
         {
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Editora";
+            GrdItens.ReadOnly = true;
         }
 
         private void FrmEditora_FormClosed(object sender, FormClosedEventArgs e)

@@ -30,6 +30,7 @@ namespace Biblioteca.View
         private void FrmLivro_Activated(object sender, EventArgs e)
         {
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Livro";
+            GrdItens.ReadOnly = true;
 
         }
 
@@ -168,7 +169,6 @@ namespace Biblioteca.View
 
         private void BtnSalvar_Click(object sender, EventArgs e)
         {
-            // Corrigir
             if (ValidaControles())
             {
                 if (Incluir)

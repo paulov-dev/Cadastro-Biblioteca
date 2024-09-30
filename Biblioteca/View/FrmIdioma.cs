@@ -24,6 +24,7 @@ namespace Biblioteca
         private void FrmIdioma_Activated(object sender, EventArgs e)
         {
             ((FrmMenu)this.MdiParent).LblDisplay.Text = "Cadastro de Idioma";
+            GrdItens.ReadOnly = true;
         }
 
         private void FrmIdioma_FormClosed(object sender, FormClosedEventArgs e)
