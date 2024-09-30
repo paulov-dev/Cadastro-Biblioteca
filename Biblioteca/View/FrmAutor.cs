@@ -127,33 +127,36 @@ namespace Biblioteca
         }
         private void GrdItens_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (GrdItens.Rows[e.RowIndex].DataBoundItem != null)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                Autor objSelecionado = (Autor)GrdItens.Rows[e.RowIndex].DataBoundItem;
-                if (GrdItens.Columns[e.ColumnIndex].Name == "BtnAlterar")
+                if (GrdItens.Rows[e.RowIndex].DataBoundItem != null)
                 {
-                    //Clicou no botao alterar
-                    TxtCodigo.Text = objSelecionado.idAutor.ToString();
-                    TxtNome.Text = objSelecionado.nomeAutor;
-                    TxtCodigo.Enabled = false;
-                    TxtNome.Focus();
-                    Incluir = false;
-                }
-                else if (GrdItens.Columns[e.ColumnIndex].Name == "BtnExcluir")
-                {
-                    //Clicou no botao excluir
-                    if (MessageBox.Show("Confirme a exclusão.", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    Autor objSelecionado = (Autor)GrdItens.Rows[e.RowIndex].DataBoundItem;
+                    if (GrdItens.Columns[e.ColumnIndex].Name == "BtnAlterar")
                     {
-                        try
+                        //Clicou no botao alterar
+                        TxtCodigo.Text = objSelecionado.idAutor.ToString();
+                        TxtNome.Text = objSelecionado.nomeAutor;
+                        TxtCodigo.Enabled = false;
+                        TxtNome.Focus();
+                        Incluir = false;
+                    }
+                    else if (GrdItens.Columns[e.ColumnIndex].Name == "BtnExcluir")
+                    {
+                        //Clicou no botao excluir
+                        if (MessageBox.Show("Confirme a exclusão.", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            objSelecionado.Excluir();
-                            CarregaGrid();
+                            try
+                            {
+                                objSelecionado.Excluir();
+                                CarregaGrid();
+                            }
+                            catch (InvalidOperationException ex)
+                            {
+                                MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            }
+
                         }
-                        catch (InvalidOperationException ex)
-                        {
-                            MessageBox.Show(ex.Message, "Erro", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                        
                     }
                 }
             }

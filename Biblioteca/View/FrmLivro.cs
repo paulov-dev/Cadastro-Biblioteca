@@ -235,33 +235,36 @@ namespace Biblioteca.View
 
         private void GrdItens_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (GrdItens.Rows[e.RowIndex].DataBoundItem != null)
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
-                Livro objSelecionado = (Livro)GrdItens.Rows[e.RowIndex].DataBoundItem;
-                if (GrdItens.Columns[e.ColumnIndex].Name == "BtnAlterar")
+                if (GrdItens.Rows[e.RowIndex].DataBoundItem != null)
                 {
-                    //Clicou no botao alterar
-                    TxtCodigo.Text = objSelecionado.idLivro.ToString();
-                    TxtNome.Text = objSelecionado.nomeLivro;
-                    TxtCodigo.Enabled = false;
-                    TxtDescricao.Text = objSelecionado.descricaoLivro.ToString();
-                    TxtIsbn.Text = objSelecionado.isbn.ToString();
-                    TxtPag.Text = objSelecionado.qtdPagLivro.ToString();
-                    TxtEdicao.Text = objSelecionado.edicaoLivro.ToString();
-                    CmbIdioma.SelectedValue = objSelecionado.Idioma.idIdioma;
-                    CmbEditora.SelectedValue = objSelecionado.Editora.idEditora;
-                    CmbGenero.SelectedValue = objSelecionado.Genero.id;
-                    CmbAutor.SelectedValue = objSelecionado.Autor.idAutor;
-                    TxtNome.Focus();
-                    Incluir = false;
-                }
-                else if (GrdItens.Columns[e.ColumnIndex].Name == "BtnExcluir")
-                {
-                    //Clicou no botao excluir
-                    if (MessageBox.Show("Confirme a exclusão.", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                    Livro objSelecionado = (Livro)GrdItens.Rows[e.RowIndex].DataBoundItem;
+                    if (GrdItens.Columns[e.ColumnIndex].Name == "BtnAlterar")
                     {
-                        objSelecionado.Excluir(objSelecionado.idLivro);
-                        CarregaGrid();
+                        //Clicou no botao alterar
+                        TxtCodigo.Text = objSelecionado.idLivro.ToString();
+                        TxtNome.Text = objSelecionado.nomeLivro;
+                        TxtCodigo.Enabled = false;
+                        TxtDescricao.Text = objSelecionado.descricaoLivro.ToString();
+                        TxtIsbn.Text = objSelecionado.isbn.ToString();
+                        TxtPag.Text = objSelecionado.qtdPagLivro.ToString();
+                        TxtEdicao.Text = objSelecionado.edicaoLivro.ToString();
+                        CmbIdioma.SelectedValue = objSelecionado.Idioma.idIdioma;
+                        CmbEditora.SelectedValue = objSelecionado.Editora.idEditora;
+                        CmbGenero.SelectedValue = objSelecionado.Genero.id;
+                        CmbAutor.SelectedValue = objSelecionado.Autor.idAutor;
+                        TxtNome.Focus();
+                        Incluir = false;
+                    }
+                    else if (GrdItens.Columns[e.ColumnIndex].Name == "BtnExcluir")
+                    {
+                        //Clicou no botao excluir
+                        if (MessageBox.Show("Confirme a exclusão.", ProductName, MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                        {
+                            objSelecionado.Excluir(objSelecionado.idLivro);
+                            CarregaGrid();
+                        }
                     }
                 }
             }
